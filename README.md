@@ -7,6 +7,7 @@ Business and proposal materials for Thelliyankal Bakers digital platform work.
 | File | Description |
 |------|-------------|
 | [proposals/thelliyankal-pitch.html](proposals/thelliyankal-pitch.html) | Client-facing HTML pitch (custom platform, ₹1.5L build) |
+| [proposals/DESIGN.md](proposals/DESIGN.md) | Pitch UI source of truth ([getdesign.md](https://getdesign.md/design-md) style) |
 | [proposals/Thelliyankal-Bakers-Digital-Platform-Proposal.md](proposals/Thelliyankal-Bakers-Digital-Platform-Proposal.md) | Full research & scope document |
 
 Open the HTML file in a browser to review. Replace `you@example.com` in the CTA with your email.

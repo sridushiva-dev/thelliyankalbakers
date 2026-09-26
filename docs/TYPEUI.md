@@ -14,6 +14,7 @@ This repo is set up for **Cursor Cloud Agents**, not desktop MCP setup. You do *
 
 | Path | Purpose |
 |------|---------|
+| `proposals/DESIGN.md` | **Pitch HTML** design reference ([getdesign.md](https://getdesign.md/design-md)) |
 | `.cursor/skills/design-system/SKILL.md` | **Active** design system (default: **cafe** for this repo) |
 | `.cursor/skills/typeui-fundamentals/` | TypeUI UI/UX fundamentals |
 | `.cursor/skills/thelliyankal-brand/SKILL.md` | Grand Reserve brand overrides |
