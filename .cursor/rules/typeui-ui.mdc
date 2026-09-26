@@ -1,0 +1,21 @@
+---
+description: Use TypeUI design system and fundamentals when building or editing UI (HTML, React, CSS).
+globs:
+  - proposals/**
+  - "**/*.html"
+  - "**/*.css"
+  - "**/*.tsx"
+  - "**/*.jsx"
+alwaysApply: false
+---
+
+# TypeUI in this project
+
+When creating or changing user interfaces:
+
+1. **Design system** — Read and follow `.cursor/skills/design-system/SKILL.md` (TypeUI **premium** registry). Prefer semantic tokens, explicit interaction states, and WCAG 2.2 AA.
+2. **Fundamentals** — For hierarchy, spacing, typography, and a11y conflicts, read `.cursor/skills/typeui-fundamentals/SKILL.md` and its linked modules in that folder.
+3. **Brand override** — For Thelliyankal client work, also read `.cursor/skills/thelliyankal-brand/SKILL.md` (warm luxury / rum & gold, not default blue primary).
+4. **MCP** — If TypeUI MCP is connected (see `docs/TYPEUI.md`), use it to install design systems, UI prompt variations, and layout options before large UI builds.
+
+Do not ship broken layouts (narrow column text, overlapping grids). Use an 8px spacing rhythm and 44px minimum touch targets on interactive controls.
