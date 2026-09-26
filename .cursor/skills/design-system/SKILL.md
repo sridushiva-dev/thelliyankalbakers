@@ -1,26 +1,26 @@
 ---
-name: premium
-description: Apple-inspired premium aesthetic with precise spacing, modern typography, and a refined, polished visual language.
+name: cafe
+description: Cozy cafe-inspired interface with warm tones, soft typography, and clean layouts for a relaxed browsing experience.
 license: MIT
 metadata:
   author: typeui.sh
 ---
 
 <!-- TYPEUI_SH_MANAGED_START -->
-# Premium Design System Skill (Universal)
+# Cafe Design System Skill (Universal)
 
 ## Mission
-You are an expert design-system guideline author for premium.
+You are an expert design-system guideline author for Cafe.
 Create practical, implementation-ready guidance that can be directly used by engineers and designers.
 
 ## Brand
-Apple design style
+A cozy café-inspired interface that blends warm tones, soft typography, and clean layouts to create a relaxed browsing experience
 
 ## Style Foundations
-- Visual style: modern
-- Typography scale: 12/14/16/18/24/30/36 | Fonts: primary=Inter, display=Inter, mono=JetBrains Mono | weights=100, 200, 300, 400, 500, 600, 700, 800, 900
-- Color palette: primary, neutral, success, warning, danger | Tokens: primary=#3B82F6, secondary=#8B5CF6, success=#16A34A, warning=#D97706, danger=#DC2626, surface=#FFFFFF, text=#111827
-- Spacing scale: 4/8/12/16/24/32
+- Visual style: minimal, clean
+- Typography scale: desktop-first expressive scale | Fonts: primary=Poppins, display=Poppins, mono=JetBrains Mono | weights=100, 200, 300, 400, 500, 600, 700, 800, 900
+- Color palette: primary, neutral, success, warning, danger | Tokens: primary=#5D4432, secondary=#E9E3DD, success=#16A34A, warning=#D97706, danger=#DC2626, surface=#F9F7F5, text=#3E2B1E
+- Spacing scale: 2/4/8/12/16/24/32/48
 
 
 ## Accessibility

@@ -3,1507 +3,264 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Thelliyankal Bakers — Grand Reserve Digital Proposal</title>
+  <title>Thelliyankal · Why this platform</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <!-- UI: TypeUI premium + thelliyankal-brand (.cursor/skills) + using-ui-stack conventions -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,650&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      /* 60% — neutral surfaces */
-      --surface-60: #f8fafc;
-      --surface-elevated: #ffffff;
-      --surface-muted: #f1f5f9;
-      /* 30% — brand (warm stone / rum) */
-      --brand-30: #1e293b;
-      --brand-30-muted: #334155;
-      /* 10% — accent CTA */
-      --accent-10: #c2410c;
-      --accent-10-hover: #9a3412;
-      --accent-10-soft: #ea580c;
-      --accent-10-pale: #ffedd5;
-      /* Semantic */
-      --success: #15803d;
-      --text-primary: #0f172a;
-      --text-secondary: #475569;
-      --text-tertiary: #94a3b8;
-      --border: #e2e8f0;
-      --border-strong: #cbd5e1;
-      /* Dark sections (slate-950, not #000) */
-      --dark-bg: #020617;
-      --dark-elevated: #0f172a;
-      --dark-text: #f8fafc;
-      --dark-text-muted: #94a3b8;
-      --dark-border: rgba(248, 250, 252, 0.1);
-      /* Aliases */
-      --bg-light: var(--surface-60);
-      --bg-white: var(--surface-elevated);
-      --bg-dark: var(--dark-bg);
-      --bg-dark-elevated: var(--dark-elevated);
-      --text-dark: var(--text-primary);
-      --text-muted: var(--text-secondary);
-      --text-on-dark: var(--dark-text);
-      --text-on-dark-muted: var(--dark-text-muted);
-      --border-dark: var(--dark-border);
-      --accent: var(--accent-10);
-      --accent-soft: var(--accent-10-soft);
-      --accent-pale: var(--accent-10-pale);
-      /* Type scale 1.25 */
-      --text-xs: 0.75rem;
-      --text-sm: 0.875rem;
-      --text-base: 1rem;
-      --text-lg: 1.125rem;
-      --text-xl: 1.25rem;
-      --text-2xl: 1.5rem;
-      --text-3xl: 1.875rem;
-      --text-4xl: 2.25rem;
-      --leading-tight: 1.25;
-      --leading-normal: 1.5;
-      --leading-relaxed: 1.75;
-      --radius-sm: 8px;
-      --radius-md: 16px;
-      --radius-lg: 24px;
-      --radius-xl: 32px;
-      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
-      --shadow-md: 0 16px 48px rgba(15, 23, 42, 0.08);
-      --shadow-lg: 0 32px 64px rgba(15, 23, 42, 0.12);
-      --space-1: 8px;
-      --space-2: 16px;
-      --space-3: 24px;
-      --space-4: 32px;
-      --space-5: 48px;
-      --space-6: 64px;
-      --space-7: 96px;
-      --space-xs: var(--space-1);
-      --space-sm: var(--space-2);
-      --space-md: var(--space-3);
-      --space-lg: var(--space-5);
-      --space-xl: var(--space-6);
-      --space-2xl: var(--space-7);
-      --max: 1120px;
-      --font-serif: "Instrument Serif", Georgia, serif;
-      --font-sans: "Inter", system-ui, sans-serif;
-      --z-sticky: 20;
-      --ring: 0 0 0 2px var(--surface-elevated), 0 0 0 4px var(--accent-10-soft);
-      --duration: 200ms;
-      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+      --bg: #0b0908; --card: #161311; --line: rgba(250,246,240,.12);
+      --text: #faf6f0; --soft: rgba(250,246,240,.74); --faint: rgba(250,246,240,.46);
+      --gold: #e8b84a; --gold-dim: rgba(232,184,74,.16);
+      --display: "Fraunces", Georgia, serif; --body: "DM Sans", system-ui, sans-serif;
     }
-
-    html[data-theme="dark"] {
-      --surface-60: #020617;
-      --surface-elevated: #0f172a;
-      --surface-muted: #1e293b;
-      --text-primary: #f8fafc;
-      --text-secondary: #cbd5e1;
-      --text-tertiary: #64748b;
-      --border: #1e293b;
-      --border-strong: #334155;
-      --accent-10-pale: rgba(234, 88, 12, 0.15);
-      --shadow-md: 0 16px 48px rgba(0, 0, 0, 0.35);
-    }
-
-    html[data-theme="dark"] .section--light {
-      background: var(--surface-60);
-    }
-
-    html[data-theme="dark"] .hero {
-      background:
-        radial-gradient(ellipse 100% 80% at 70% -20%, rgba(234, 88, 12, 0.15), transparent 50%),
-        var(--surface-60);
-    }
-
-    html[data-theme="dark"] .feature-row:not(.feature-row--dark) {
-      background: var(--surface-elevated);
-      border-color: var(--border);
-    }
-
-    html[data-theme="dark"] .feature-row:not(.feature-row--dark) .feature-title {
-      color: var(--text-primary);
-    }
-
-    html[data-theme="dark"] .table-wrap,
-    html[data-theme="dark"] .line-items {
-      background: var(--surface-elevated);
-      border-color: var(--border);
-    }
-
-    html[data-theme="dark"] table.data th {
-      background: var(--surface-muted);
-    }
-
-    html[data-theme="dark"] .callout-muted {
-      background: var(--surface-muted);
-    }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html {
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    body {
-      font-family: var(--font-sans);
-      font-size: 16px;
-      line-height: 1.6;
-      color: var(--text-dark);
-      background: var(--bg-light);
-    }
-
-    img { max-width: 100%; display: block; }
-
-    a { color: var(--accent); text-decoration: none; }
-
-    .skip {
-      position: absolute;
-      left: -9999px;
-      padding: var(--space-2);
-      background: var(--brand-30);
-      color: var(--dark-text);
-      border-radius: var(--radius-sm);
-    }
-
-    .skip:focus {
-      left: var(--space-2);
-      top: var(--space-2);
-      z-index: 60;
-      outline: none;
-      box-shadow: var(--ring);
-    }
-
-    /* ——— Buttons (5 states) ——— */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-1);
-      min-height: 44px;
-      min-width: 44px;
-      padding: 12px 24px;
-      font-family: var(--font-sans);
-      font-size: var(--text-sm);
-      font-weight: 600;
-      line-height: var(--leading-tight);
-      border-radius: 100px;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background var(--duration) var(--ease-out), transform var(--duration) var(--ease-out), box-shadow var(--duration) var(--ease-out);
-    }
-
-    .btn-primary {
-      background: var(--accent-10);
-      color: #fff;
-      box-shadow: 0 4px 14px rgba(194, 65, 12, 0.35);
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-10-hover);
-      text-decoration: none;
-      color: #fff;
-    }
-
-    .btn-primary:active {
-      transform: scale(0.98);
-    }
-
-    .btn-primary:focus-visible {
-      outline: none;
-      box-shadow: var(--ring);
-    }
-
-    .btn-primary:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    .btn-ghost {
-      background: transparent;
-      color: var(--text-secondary);
-      border: 1px solid var(--border);
-    }
-
-    .btn-ghost:hover {
-      background: var(--surface-muted);
-      color: var(--text-primary);
-    }
-
-    .btn-ghost:focus-visible {
-      outline: none;
-      box-shadow: var(--ring);
-    }
-
-    .btn-icon {
-      padding: 10px;
-      border-radius: var(--radius-sm);
-      min-width: 44px;
-    }
-
-    /* ——— Top bar ——— */
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: var(--z-sticky);
-      background: color-mix(in srgb, var(--surface-60) 88%, transparent);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .topbar-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 14px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .brand {
-      font-family: var(--font-serif);
-      font-size: 1.125rem;
-      font-weight: 400;
-      color: var(--text-dark);
-      letter-spacing: -0.02em;
-    }
-
-    .topbar nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px 20px;
-    }
-
-    .nav-link {
-      display: inline-flex;
-      align-items: center;
-      min-height: 44px;
-      padding: 8px 12px;
-      font-size: var(--text-sm);
-      font-weight: 500;
-      color: var(--text-secondary);
-      text-decoration: none;
-      border-radius: var(--radius-sm);
-      transition: color var(--duration) var(--ease-out), background var(--duration) var(--ease-out);
-    }
-
-    .nav-link:hover {
-      color: var(--text-primary);
-      background: var(--surface-muted);
-      text-decoration: none;
-    }
-
-    .nav-link:active {
-      transform: scale(0.98);
-    }
-
-    .nav-link:focus-visible {
-      outline: none;
-      box-shadow: var(--ring);
-    }
-
-    .topbar-actions {
-      display: flex;
-      align-items: center;
-      gap: var(--space-1);
-    }
-
-    .chip {
-      font-size: 0.6875rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 6px 12px;
-      border-radius: 100px;
-      background: var(--text-dark);
-      color: var(--text-on-dark);
-    }
-
-    .menu-toggle { display: none; }
-
-    @media (max-width: 720px) {
-      .topbar nav {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        padding: var(--space-2);
-        background: var(--surface-elevated);
-        border-bottom: 1px solid var(--border);
-        box-shadow: var(--shadow-md);
-      }
-
-      .topbar nav.is-open { display: flex; }
-
-      .menu-toggle { display: inline-flex; }
-      .chip { display: none; }
-    }
-
-    /* ——— Sections ——— */
-    .section {
-      padding: var(--space-2xl) var(--space-3);
-    }
-
-    .section--light {
-      background: var(--surface-60);
-    }
-
-    .section--dark {
-      background: var(--dark-bg);
-      color: var(--dark-text);
-    }
-
-    .section--dark .section-kicker { color: var(--accent-soft); }
-    .section--dark .lead { color: var(--text-on-dark-muted); }
-
-    .container {
-      max-width: var(--max);
-      margin: 0 auto;
-    }
-
-    .section-kicker {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: var(--space-sm);
-    }
-
-    .display {
-      font-family: var(--font-serif);
-      font-size: clamp(2.5rem, 5.5vw, 3.75rem);
-      font-weight: 400;
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-      color: inherit;
-      margin-bottom: var(--space-md);
-    }
-
-    .display em {
-      font-style: italic;
-      color: var(--accent-soft);
-    }
-
-    .section--light .display em { color: var(--accent); }
-
-    h2.title {
-      font-family: var(--font-serif);
-      font-size: clamp(2rem, 4vw, 2.75rem);
-      font-weight: 400;
-      line-height: 1.12;
-      letter-spacing: -0.02em;
-      margin-bottom: var(--space-md);
-    }
-
-    .lead {
-      font-size: 1.125rem;
-      line-height: 1.65;
-      color: var(--text-muted);
-      max-width: 42rem;
-      margin-bottom: var(--space-lg);
-    }
-
-    .lead strong { color: var(--text-dark); font-weight: 600; }
-    .section--dark .lead strong { color: var(--text-on-dark); }
-
-    /* ——— Hero ——— */
-    .hero {
-      padding: var(--space-xl) 24px var(--space-2xl);
-      background:
-        radial-gradient(ellipse 100% 80% at 70% -20%, rgba(217, 119, 6, 0.12), transparent 50%),
-        var(--bg-light);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .hero-grid {
-      max-width: var(--max);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-xl);
-      align-items: center;
-    }
-
-    @media (max-width: 900px) {
-      .hero-grid { grid-template-columns: 1fr; }
-    }
-
-    .hero-copy .badge-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: var(--space-md);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-2);
-      align-items: center;
-      margin-top: var(--space-3);
-    }
-
-    .hero-copy .badge-row .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--accent-10-soft);
-      box-shadow: 0 0 12px rgba(234, 88, 12, 0.5);
-    }
-
-    .hero-copy .badge-row span {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .hero-visual {
-      position: relative;
-      min-height: 420px;
-      border-radius: var(--radius-xl);
-      background: linear-gradient(145deg, #1c1917 0%, #292524 50%, #1c1917 100%);
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-    }
-
-    .hero-visual::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 30% 40%, rgba(217, 119, 6, 0.35), transparent 45%),
-        radial-gradient(circle at 80% 70%, rgba(180, 83, 9, 0.2), transparent 40%);
-    }
-
-    .hero-visual-content {
-      position: relative;
-      z-index: 1;
-      height: 100%;
-      padding: var(--space-lg);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .hero-visual h2 {
-      font-family: var(--font-serif);
-      font-size: 1.75rem;
-      font-weight: 400;
-      color: var(--text-on-dark);
-      line-height: 1.2;
-      max-width: 14ch;
-    }
-
-    .stat-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-
-    @media (max-width: 500px) {
-      .stat-row { grid-template-columns: 1fr; }
-    }
-
-    .stat {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--border-dark);
-      border-radius: var(--radius-md);
-      padding: 16px;
-    }
-
-    .stat .value {
-      font-family: var(--font-serif);
-      font-size: 1.75rem;
-      color: #fbbf24;
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-
-    .stat .label {
-      font-size: 0.6875rem;
-      line-height: 1.4;
-      color: var(--text-on-dark-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .price-pill {
-      display: inline-flex;
-      align-items: baseline;
-      gap: var(--space-1);
-      padding: 12px 20px;
-      background: var(--surface-elevated);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .price-pill .amount {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      color: var(--text-dark);
-    }
-
-    .price-pill .meta {
-      font-size: 0.8125rem;
-      color: var(--text-muted);
-    }
-
-    /* ——— Gap cards ——— */
-    .compare-two {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-md);
-      margin-top: var(--space-lg);
-    }
-
-    @media (max-width: 700px) {
-      .compare-two { grid-template-columns: 1fr; }
-    }
-
-    .compare-card {
-      border-radius: var(--radius-lg);
-      padding: var(--space-lg);
-      border: 1px solid var(--border-dark);
-    }
-
-    .compare-card--high {
-      background: linear-gradient(160deg, #292524, #1c1917);
-    }
-
-    .compare-card--low {
-      background: var(--bg-dark-elevated);
-      border-style: dashed;
-      opacity: 0.95;
-    }
-
-    .compare-card .score {
-      font-family: var(--font-serif);
-      font-size: 3.5rem;
-      line-height: 1;
-      margin-bottom: 12px;
-    }
-
-    .compare-card--high .score { color: #fbbf24; }
-    .compare-card--low .score { color: var(--text-muted-light); }
-
-    .compare-card h3 {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      margin-bottom: 8px;
-      font-weight: 400;
-    }
-
-    .compare-card p {
-      font-size: 0.9375rem;
-      color: var(--text-on-dark-muted);
-      line-height: 1.55;
-    }
-
-    .quote-band {
-      margin-top: var(--space-lg);
-      padding: var(--space-lg);
-      text-align: center;
-      border-radius: var(--radius-lg);
-      background: rgba(217, 119, 6, 0.12);
-      border: 1px solid rgba(217, 119, 6, 0.25);
-    }
-
-    .quote-band p {
-      font-family: var(--font-serif);
-      font-size: clamp(1.25rem, 2.5vw, 1.625rem);
-      font-style: italic;
-      color: var(--text-on-dark);
-      line-height: 1.45;
-      max-width: 36rem;
-      margin: 0 auto;
-    }
-
-    /* ——— Feature list (fixed layout) ——— */
-    .feature-stack {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-sm);
-      margin-top: var(--space-lg);
-    }
-
-    .feature-row {
-      display: flex;
-      align-items: flex-start;
-      gap: var(--space-md);
-      padding: var(--space-3) var(--space-4);
-      background: var(--surface-elevated);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-sm);
-      transition: box-shadow var(--duration) var(--ease-out), transform var(--duration) var(--ease-out), border-color var(--duration) var(--ease-out);
-    }
-
-    @media (prefers-reduced-motion: no-preference) {
-      .feature-row:hover {
-        box-shadow: var(--shadow-md);
-        transform: translateY(-2px);
-        border-color: var(--border-strong);
-      }
-    }
-
-    .feature-row:focus-within {
-      box-shadow: var(--ring);
-    }
-
-    .feature-row--dark {
-      background: var(--brand-30);
-      border-color: var(--dark-border);
-      color: var(--dark-text);
-    }
-
-    .feature-row--dark p { color: var(--text-on-dark-muted); }
-    .feature-row--dark .feature-title { color: #fbbf24; }
-
-    @media (max-width: 600px) {
-      .feature-row {
-        flex-direction: column;
-        gap: 8px;
-      }
-    }
-
-    .feature-icon {
-      flex-shrink: 0;
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: var(--accent-pale);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.25rem;
-    }
-
-    .feature-row--dark .feature-icon {
-      background: rgba(251, 191, 36, 0.15);
-    }
-
-    .feature-body {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .feature-title {
-      font-family: var(--font-serif);
-      font-size: 1.25rem;
-      font-weight: 400;
-      margin-bottom: 6px;
-      color: var(--text-dark);
-      letter-spacing: -0.01em;
-    }
-
-    .feature-body p {
-      font-size: 0.9375rem;
-      color: var(--text-muted);
-      line-height: 1.55;
-      margin: 0;
-    }
-
-    /* ——— Pillars ——— */
-    .pillar-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-md);
-      margin-top: var(--space-lg);
-    }
-
-    @media (max-width: 800px) {
-      .pillar-grid { grid-template-columns: 1fr; }
-    }
-
-    .pillar {
-      padding: var(--space-md);
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border-dark);
-      background: var(--bg-dark-elevated);
-    }
-
-    .pillar h4 {
-      font-size: 0.9375rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--text-on-dark);
-    }
-
-    .pillar p {
-      font-size: 0.875rem;
-      color: var(--text-on-dark-muted);
-      line-height: 1.5;
-      margin: 0;
-    }
-
-    /* ——— Table ——— */
-    .table-wrap {
-      margin-top: var(--space-lg);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: var(--bg-white);
-      box-shadow: var(--shadow-md);
-    }
-
-    table.data {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9375rem;
-    }
-
-    table.data th,
-    table.data td {
-      padding: 18px 22px;
-      text-align: left;
-      vertical-align: top;
-      border-bottom: 1px solid var(--border);
-    }
-
-    table.data th {
-      background: #fafaf9;
-      font-size: 0.6875rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-    }
-
-    table.data tr:last-child td { border-bottom: none; }
-
-    table.data .muted { color: var(--text-muted); text-decoration: line-through; }
-
-    table.data tr.highlight {
-      background: linear-gradient(90deg, var(--accent-pale), #fff);
-    }
-
-    table.data tr.highlight td:last-child {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      font-weight: 400;
-      color: var(--accent);
-    }
-
-    /* ——— Pricing layout ——— */
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: 340px 1fr;
-      gap: var(--space-lg);
-      margin-top: var(--space-lg);
-      align-items: start;
-    }
-
-    @media (max-width: 900px) {
-      .pricing-grid { grid-template-columns: 1fr; }
-    }
-
-    .pricing-card {
-      position: sticky;
-      top: 88px;
-      padding: var(--space-lg);
-      border-radius: var(--radius-lg);
-      background: var(--text-dark);
-      color: var(--text-on-dark);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .pricing-card .label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-on-dark-muted);
-      margin-bottom: 8px;
-    }
-
-    .pricing-card .big {
-      font-family: var(--font-serif);
-      font-size: 3.25rem;
-      line-height: 1;
-      color: #fbbf24;
-      margin-bottom: var(--space-md);
-    }
-
-    .pricing-card .note {
-      font-size: 0.875rem;
-      color: var(--text-on-dark-muted);
-      line-height: 1.55;
-      margin-bottom: var(--space-md);
-    }
-
-    .pricing-card .save {
-      padding-top: var(--space-md);
-      border-top: 1px solid var(--border-dark);
-      font-size: 0.875rem;
-      color: var(--text-on-dark-muted);
-    }
-
-    .pricing-card .save strong { color: #fbbf24; }
-
-    .line-items {
-      list-style: none;
-      background: var(--bg-white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-    }
-
-    .line-items li {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 8px 24px;
-      padding: 18px 22px;
-      border-bottom: 1px solid var(--border);
-      align-items: start;
-    }
-
-    .line-items li:last-child {
-      border-bottom: none;
-      background: #fafaf9;
-      font-weight: 600;
-    }
-
-    .line-items .item-title {
-      font-size: 0.9375rem;
-      font-weight: 500;
-      color: var(--text-dark);
-    }
-
-    .line-items .item-desc {
-      grid-column: 1 / -1;
-      font-size: 0.8125rem;
-      color: var(--text-muted);
-      margin-top: -4px;
-    }
-
-    .line-items .item-amt {
-      font-family: var(--font-serif);
-      font-size: 1.125rem;
-      color: var(--accent);
-      white-space: nowrap;
-    }
-
-    .line-items li:last-child .item-amt {
-      font-size: 1.375rem;
-      color: var(--text-dark);
-    }
-
-    .terms {
-      margin-top: var(--space-md);
-      font-size: 0.8125rem;
-      color: var(--text-muted);
-    }
-
-    /* ——— Checklist ——— */
-    .check-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-lg);
-      margin-top: var(--space-lg);
-    }
-
-    @media (max-width: 700px) {
-      .check-grid { grid-template-columns: 1fr; }
-    }
-
-    .check-col h3 {
-      font-family: var(--font-serif);
-      font-size: 1.375rem;
-      margin-bottom: var(--space-md);
-      font-weight: 400;
-    }
-
-    ul.checks {
-      list-style: none;
-    }
-
-    ul.checks li {
-      position: relative;
-      padding: 10px 0 10px 28px;
-      font-size: 0.9375rem;
-      color: var(--text-muted);
-      border-bottom: 1px solid var(--border);
-    }
-
-    ul.checks li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 16px;
-      width: 10px;
-      height: 10px;
-      border-radius: 3px;
-      background: var(--accent-soft);
-    }
-
-    .callout-muted {
-      margin-top: var(--space-lg);
-      padding: var(--space-md) var(--space-lg);
-      border-radius: var(--radius-md);
-      background: #fafaf9;
-      border: 1px dashed var(--border);
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      line-height: 1.55;
-    }
-
-    .callout-muted strong { color: var(--text-dark); }
-
-    /* ——— Timeline ——— */
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--space-md);
-      margin-top: var(--space-lg);
-    }
-
-    @media (max-width: 800px) {
-      .steps { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 480px) {
-      .steps { grid-template-columns: 1fr; }
-    }
-
-    .step {
-      padding: var(--space-md);
-      border-radius: var(--radius-md);
-      background: var(--bg-dark-elevated);
-      border: 1px solid var(--border-dark);
-    }
-
-    .step .num {
-      font-size: 0.6875rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent-soft);
-      margin-bottom: 8px;
-    }
-
-    .step h4 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text-on-dark);
-      margin-bottom: 6px;
-    }
-
-    .step p {
-      font-size: 0.8125rem;
-      color: var(--text-on-dark-muted);
-      margin: 0;
-      line-height: 1.5;
-    }
-
-    /* ——— Finale ——— */
-    .finale {
-      text-align: center;
-      padding: var(--space-2xl) 24px;
-      background: linear-gradient(180deg, var(--bg-light), #efe9e0);
-      border-top: 1px solid var(--border);
-    }
-
-    .finale .display { max-width: 20ch; margin-left: auto; margin-right: auto; }
-
-    .finale .lead { margin-left: auto; margin-right: auto; text-align: center; }
-
-    .finale-cta {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-md);
-      margin-top: var(--space-lg);
-    }
-
-    .finale-cta .big-price {
-      font-family: var(--font-serif);
-      font-size: 2.75rem;
-      color: var(--accent);
-    }
-
-    .finale-pills {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    .finale-pills span {
-      font-size: 0.8125rem;
-      font-weight: 500;
-      padding: 10px 16px;
-      border-radius: 100px;
-      background: var(--bg-white);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-    }
-
-    footer.site-footer {
-      text-align: center;
-      padding: var(--space-lg) 24px;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      background: var(--bg-white);
-      border-top: 1px solid var(--border);
-    }
-
-    /* Reveal */
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .reveal.is-visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .reveal { opacity: 1; transform: none; transition: none; }
-      .feature-row:hover { transform: none; }
-    }
-
-    @media print {
-      .topbar { position: static; }
-      .pricing-card { position: static; }
-      .reveal { opacity: 1; transform: none; }
-    }
+    html, body { height: 100%; }
+    body { font-family: var(--body); background: var(--bg); color: var(--text); overflow: hidden; }
+    .slide { display: none; height: 100%; height: 100dvh; padding: 68px 6vw 92px; flex-direction: column; justify-content: center; overflow: auto; }
+    .slide.is-active { display: flex; }
+    .kicker { font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+    h1, h2, h3 { font-family: var(--display); font-weight: 560; letter-spacing: -.03em; line-height: 1.08; }
+    h1 { font-size: clamp(2.2rem, 4.6vw, 3.6rem); max-width: 18ch; }
+    h2 { font-size: clamp(1.65rem, 3.2vw, 2.45rem); max-width: 26ch; margin-bottom: 18px; }
+    .lede { color: var(--soft); max-width: 46rem; line-height: 1.55; font-size: clamp(1rem, 1.4vw, 1.15rem); }
+    .lede strong, .cell strong { color: var(--text); }
+    .topbar, .bottombar { position: fixed; left: 0; right: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; }
+    .topbar { top: 0; } .bottombar { bottom: 0; }
+    .brand, .counter, .hint { font-size: .8rem; color: var(--faint); }
+    .brand strong { color: var(--text); }
+    .dots { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; max-width: 46vw; }
+    .dots button { width: 9px; height: 9px; border: 0; border-radius: 99px; background: rgba(250,246,240,.22); cursor: pointer; }
+    .dots button.is-on { background: var(--gold); width: 20px; }
+    .nav-btns { display: flex; gap: 8px; }
+    .nav-btns button { min-width: 44px; min-height: 44px; border-radius: 10px; border: 1px solid var(--line); background: var(--card); color: var(--text); cursor: pointer; }
+    .notes { display: none; position: fixed; left: 18px; bottom: 70px; z-index: 30; max-width: 640px; padding: 14px 16px; border-radius: 12px; background: #241c14; border: 1px solid rgba(232,184,74,.4); color: var(--soft); font-size: .88rem; }
+    body.show-notes .notes { display: block; }
+    .grid { display: grid; gap: 12px; margin-top: 18px; }
+    .g3 { grid-template-columns: repeat(3, 1fr); }
+    .g2 { grid-template-columns: 1fr 1fr; }
+    .g4 { grid-template-columns: repeat(4, 1fr); }
+    @media (max-width: 860px) { .g3, .g2, .g4 { grid-template-columns: 1fr; } }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; }
+    .card .n { font-family: var(--display); font-size: clamp(1.35rem, 2.4vw, 1.85rem); color: var(--gold); line-height: 1.1; }
+    .card p, .card .l { color: var(--soft); font-size: .88rem; margin-top: 6px; }
+    .card h3 { font-size: 1.15rem; margin-bottom: 6px; }
+    table { width: 100%; border-collapse: collapse; font-size: .9rem; margin-top: 8px; }
+    th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); }
+    td.you { color: var(--gold); font-weight: 600; }
+    .tag { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); }
+    ul.clean { list-style: none; display: grid; gap: 8px; }
+    ul.clean li { padding: 11px 12px 11px 28px; border-radius: 12px; background: var(--card); border: 1px solid var(--line); color: var(--soft); position: relative; }
+    ul.clean li::before { content: ""; position: absolute; left: 12px; top: 18px; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+    .bars { display: flex; flex-direction: column; gap: 12px; max-width: 820px; margin-top: 8px; }
+    .bar { display: grid; grid-template-columns: 150px 1fr 120px; gap: 10px; align-items: center; font-size: .85rem; color: var(--soft); }
+    @media (max-width: 700px) { .bar { grid-template-columns: 1fr; } }
+    .track { height: 14px; background: rgba(255,255,255,.06); border-radius: 99px; overflow: hidden; }
+    .fill { height: 100%; background: rgba(250,246,240,.28); border-radius: 99px; }
+    .fill.you { background: linear-gradient(90deg, #c4922e, var(--gold)); }
+    .pay { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    .pay div { flex: 1; min-width: 120px; text-align: center; padding: 16px; border-radius: 14px; background: var(--gold-dim); border: 1px solid rgba(232,184,74,.35); }
+    .pay .big { font-family: var(--display); font-size: 1.8rem; color: var(--gold); }
+    .cta { display: inline-flex; margin-top: 20px; min-height: 48px; align-items: center; padding: 0 20px; border-radius: 999px; background: linear-gradient(180deg,#f0c96a,#c4922e); color: #1a1208; font-weight: 700; text-decoration: none; }
   </style>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+  <div class="topbar"><div class="brand"><strong>Thelliyankal</strong> · strategy briefing</div><div class="hint">← → · N notes · F fullscreen</div></div>
+  <main id="deck">
 
-  <header class="topbar">
-    <div class="topbar-inner" style="position:relative">
-      <div class="brand">Thelliyankal · Proposal</div>
-      <nav id="site-nav" aria-label="Sections">
-        <a class="nav-link" href="#vision">Vision</a>
-        <a class="nav-link" href="#investment">Investment</a>
-        <a class="nav-link" href="#scope">Scope</a>
-        <a class="nav-link" href="#timeline">Timeline</a>
-        <a class="nav-link" href="#next">Next steps</a>
-      </nav>
-      <div class="topbar-actions">
-        <button type="button" class="btn btn-ghost btn-icon menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">☰</button>
-        <button type="button" class="btn btn-ghost btn-icon" id="theme-toggle" aria-label="Toggle dark mode">◐</button>
-        <span class="chip">Confidential</span>
+    <section class="slide is-active" data-notes="Do not mention the fee. Frame the call: the cake already wins. The question is whether the digital shelf can keep up with Pandhal and Mambally’s this Christmas.">
+      <p class="kicker">Christmas 2026 · Confidential</p>
+      <h1>Your cake is ahead of your website. The category will not wait.</h1>
+      <p class="lede" style="margin-top:20px;">This briefing is why a <strong>purpose-built Grand Reserve platform</strong> is the right move — grounded in how Kerala plum cake is actually bought, and how the leaders already sell it.</p>
+    </section>
+
+    <section class="slide" data-notes="Tell him price comes at the end, after the case. If he asks early: “I’ll show the number once the why is clear.”">
+      <p class="kicker">How we’ll use the time</p>
+      <h2>First the market. Then the rivals. Then the decision.</h2>
+      <ul class="clean">
+        <li>Where Christmas plum-cake demand actually sits</li>
+        <li>What Pandhal, Mambally’s, Pettikadai and KR Bakes already do online</li>
+        <li>Where Thelliyankal is strong — and where the site leaks trust</li>
+        <li>Why a custom single-product system fits you better than Shopify or a brochure site</li>
+        <li>Only then: what it costs, what it includes, and how we start</li>
+      </ul>
+    </section>
+
+    <section class="slide" data-notes="Say these are published season estimates, not our audit. The point is concentration: almost all money is Oct–Dec, so the system must handle a surge, not an average Tuesday.">
+      <p class="kicker">Market · the season</p>
+      <h2>This is a six-week business wearing a twelve-month name.</h2>
+      <div class="grid g3">
+        <div class="card"><div class="n">~50–60L kg</div><p>Press estimates for national Christmas-cake volume in season — including home bakers.</p></div>
+        <div class="card"><div class="n">₹250–600 cr</div><p>Category value cited for the same window. Specialty plum cake is inside that rush.</p></div>
+        <div class="card"><div class="n">Oct → Dec</div><p>Most D2C revenue lands here. Pre-orders often start in September. Miss the window, miss the year.</p></div>
       </div>
-    </div>
-  </header>
+      <p class="lede" style="margin-top:16px;">A shop built for “average days” breaks in December. You need cut-offs, batches, and a way to stop orders when the kitchen is full.</p>
+    </section>
 
-  <main id="main">
-
-    <section class="hero">
-      <div class="hero-grid">
-        <div class="hero-copy reveal">
-          <div class="badge-row">
-            <span class="dot" aria-hidden="true"></span>
-            <span>Christmas 2026 · Grand Reserve</span>
-          </div>
-          <h1 class="display">
-            The website your cake<br />already deserves.
-          </h1>
-          <p class="lead">
-            I am building you the <strong>best online home</strong> for Kerala’s most distinctive plum cake — a storefront that feels as premium as the bottle on your shelf, plus a calm <strong>business panel</strong> so you run orders without app chaos. Built for <strong>10,000–15,000 visitors</strong> when your campaign hits.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#next">Start the build — ₹1.5L</a>
-            <div class="price-pill">
-              <span class="amount">₹1,50,000</span>
-              <span class="meta">one-time · all core integrations</span>
-            </div>
-          </div>
-        </div>
-
-        <aside class="hero-visual reveal" aria-label="Key metrics">
-          <div class="hero-visual-content">
-            <h2>Proof you’ve already won the product war.</h2>
-            <div class="stat-row">
-              <div class="stat">
-                <div class="value">1,000+</div>
-                <div class="label">Amazon reviews</div>
-              </div>
-              <div class="stat">
-                <div class="value">45</div>
-                <div class="label">Years of legacy</div>
-              </div>
-              <div class="stat">
-                <div class="value">15k</div>
-                <div class="label">Visitors planned for</div>
-              </div>
-            </div>
-          </div>
-        </aside>
+    <section class="slide" data-notes="Amazon proved Delhi, Bangalore, Mumbai will buy Kerala plum cake. His own reviews are evidence. D2C is where margin and the customer list live.">
+      <p class="kicker">Market · how people buy</p>
+      <h2>Amazon finds them. Your site should keep them.</h2>
+      <div class="grid g2">
+        <div class="card"><h3>Amazon</h3><p>Discovery, reviews, Prime trust. You already have <strong>1,000+ reviews</strong>. You also pay fees, lose the customer relationship, and get pushed on price.</p></div>
+        <div class="card"><h3>Your own site</h3><p>Brand, gifting, corporate invoices, repeat December buyers. Higher margin <strong>only if</strong> the page feels as serious as the bottle and shipping is predictable.</p></div>
+        <div class="card"><h3>Packaging is the ad</h3><p>Whiskey-style boxes get filmed. Leaders treat the product as content. A generic theme throws that advantage away at the first click.</p></div>
+        <div class="card"><h3>Corporate &amp; diaspora</h3><p>Hampers, GST invoices, Gulf and metro buyers. That is a second lane — enquiry, not a random cart — and rivals already built for it.</p></div>
       </div>
     </section>
 
-    <section class="section section--dark">
-      <div class="container reveal">
-        <p class="section-kicker">The gap</p>
-        <h2 class="title">Your product stops people.<br />Your doorway lets them leave.</h2>
-        <p class="lead">
-          The box gets filmed. Amazon gets the stars. Then the website feels generic — and trust leaks before Razorpay. This project closes that gap so the <em>first click</em> feels as intentional as the <em>first slice</em>.
-        </p>
+    <section class="slide" data-notes="Walk the table slowly. He should feel Pandhal and Mambally’s are not ‘also bakers’ — they are digitally organised. Prices are signals from public shelves, not a price war.">
+      <p class="kicker">Competitors · who sets the bar</p>
+      <h2>They are not winning on flour. They are winning on the doorway.</h2>
+      <table>
+        <thead><tr><th>Brand</th><th>How they show up</th><th>What to copy</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Pandhal</strong><br><span style="color:var(--faint)">Mattancherry · 40+ yrs</span></td><td>Spice plum cake, hamper ladder (~₹775–₹4,855+), own site plus Amazon case studies, corporate tiers</td><td>Occasion pages, hampers, Amazon and own store together</td></tr>
+          <tr><td><strong>Mambally’s</strong></td><td>“First plum cake, 1883.” National story, pan-India shipping narrative</td><td>Heritage, soak time, craft — told on the page, not only on the label</td></tr>
+          <tr><td><strong>Pettikadai</strong></td><td>Pincode check on the product page, Christmas SEO</td><td>Tell people they can be delivered <em>before</em> they pay</td></tr>
+          <tr><td><strong>KR Bakes</strong></td><td>Corporate order page and form</td><td>A real enquiry path, not a WhatsApp scramble</td></tr>
+        </tbody>
+      </table>
+    </section>
 
-        <div class="compare-two">
-          <article class="compare-card compare-card--high">
-            <div class="score">10</div>
-            <h3>Grand Reserve</h3>
-            <p>Packaging, story, flavour — a gift people remember and reorder every December.</p>
-          </article>
-          <article class="compare-card compare-card--low">
-            <div class="score">—</div>
-            <h3>Today’s digital shelf</h3>
-            <p>Template feel, shipping scars, channels that don’t match the price on the box.</p>
-          </article>
-        </div>
+    <section class="slide" data-notes="This is the punch. Read the middle column out loud. Today he is Amazon-strong and site-weak. The right column is the build.">
+      <p class="kicker">Competitors · the scoreboard</p>
+      <h2>Leaders already have the basics. You mostly have the product.</h2>
+      <table>
+        <thead><tr><th>Capability</th><th>Pandhal &amp; peers</th><th>Thelliyankal today</th><th>What we build</th></tr></thead>
+        <tbody>
+          <tr><td>Story &amp; photography</td><td>Strong</td><td>Packaging strong, site weak</td><td class="you">Storefront that matches the box</td></tr>
+          <tr><td>Pincode before pay</td><td>Common</td><td>Unclear</td><td class="you">Required</td></tr>
+          <tr><td>Corporate / bulk</td><td>Yes</td><td>Thin</td><td class="you">Enquiry + tracking</td></tr>
+          <tr><td>Amazon + own site</td><td>Both, on purpose</td><td>Reviews strong, site lags</td><td class="you">D2C you own; Amazon stays discovery</td></tr>
+          <tr><td>Peak-week control</td><td>Process</td><td>Manual, shipping scars</td><td class="you">Pause orders + one admin</td></tr>
+        </tbody>
+      </table>
+    </section>
 
-        <div class="quote-band">
-          <p>“I’m not selling you Shopify. I’m selling you ownership — brand, data, and one place to run Christmas.”</p>
-        </div>
+    <section class="slide" data-notes="Name Delhivery only as lived pain, not a rant. Price confusion: ~₹1,400 on his site vs ~₹1,100 on Amazon — buyers notice.">
+      <p class="kicker">Your position</p>
+      <h2>Strengths are real. The leaks are specific.</h2>
+      <div class="grid g2">
+        <div class="card"><p class="tag">Keep</p><h3>Since 1980</h3><p>Three generations, year-long fruit, whiskey-style pack. Mambally’s sells heritage. You have heritage — the site doesn’t perform it.</p></div>
+        <div class="card"><p class="tag">Keep</p><h3>1,000+ Amazon reviews</h3><p>Proof the cake travels. Proof you don’t need to invent demand. You need to stop renting the relationship.</p></div>
+        <div class="card"><p class="tag">Fix</p><h3>Trust at checkout</h3><p>Generic theme plus courier mis-routes (including Delhivery) teach people the gift might not arrive like the unboxing.</p></div>
+        <div class="card"><p class="tag">Fix</p><h3>Two prices, two stories</h3><p>About ₹1,400 on your shop and ~₹1,100 on Amazon. Without a clear D2C reason — gifting, service, corporate — they stay on Amazon.</p></div>
       </div>
     </section>
 
-    <section class="section section--light" id="vision">
-      <div class="container reveal">
-        <p class="section-kicker">The vision</p>
-        <h2 class="title">A custom platform — not a rented shelf</h2>
-        <p class="lead">
-          Shopify answered “sell online.” You need <strong>sell this legend, this season, without chaos</strong>. Everything below is engineered as one system — no broken grids, no ten apps — just clarity.
-        </p>
+    <section class="slide" data-notes="Reject two wrong answers: another Shopify theme, and a pretty brochure with no admin. Right answer is one cake, one season, operations included.">
+      <p class="kicker">The right solution</p>
+      <h2>Not a bigger catalogue. A Christmas system for one legend.</h2>
+      <ul class="clean">
+        <li><strong>Not Shopify-plus-apps.</strong> You would still rent design limits, still fight shipping logic, still lack a pause switch you own.</li>
+        <li><strong>Not a brochure website.</strong> Pretty pages without Razorpay, pincodes, and an order desk fail the week ads work.</li>
+        <li><strong>Yes: one hero product.</strong> Grand Reserve first. Sizes and hampers later — Pandhal’s ladder, after the core converts.</li>
+        <li><strong>Yes: Amazon stays.</strong> It is the showroom. The site is the counter where you keep the name, phone, and margin.</li>
+        <li><strong>Yes: corporate as a lane.</strong> Form, lead list, GST-minded fulfilment — the KR Bakes lesson, inside your admin.</li>
+      </ul>
+    </section>
 
-        <div class="feature-stack">
-          <article class="feature-row feature-row--dark">
-            <div class="feature-icon" aria-hidden="true">✦</div>
-            <div class="feature-body">
-              <h3 class="feature-title">Storefront that sells the story</h3>
-              <p>Mobile-first, fast, festive — one hero SKU so every screen supports Grand Reserve, not a catalogue you don’t need.</p>
-            </div>
-          </article>
-
-          <article class="feature-row">
-            <div class="feature-icon" aria-hidden="true">◆</div>
-            <div class="feature-body">
-              <h3 class="feature-title">Your data, in your hands</h3>
-              <p>Customers and orders live in your database. Export anytime. No platform lock-in when you grow next year.</p>
-            </div>
-          </article>
-
-          <article class="feature-row">
-            <div class="feature-icon" aria-hidden="true">◆</div>
-            <div class="feature-body">
-              <h3 class="feature-title">Operations that breathe</h3>
-              <p>One admin: paid orders, shipping steps, pause when the kitchen is full — built for how December actually feels.</p>
-            </div>
-          </article>
-
-          <article class="feature-row">
-            <div class="feature-icon" aria-hidden="true">◆</div>
-            <div class="feature-body">
-              <h3 class="feature-title">India-ready rails</h3>
-              <p>Razorpay, Shiprocket, pincode discipline — the same stack serious D2C brands use, wired correctly from day one.</p>
-            </div>
-          </article>
-
-          <article class="feature-row">
-            <div class="feature-icon" aria-hidden="true">◆</div>
-            <div class="feature-body">
-              <h3 class="feature-title">Why we’re leaving Shopify</h3>
-              <p>You felt Delhivery friction and weak design while paying monthly rent. Custom puts luxury feel and shipping logic <em>inside</em> the product — not from the app store.</p>
-            </div>
-          </article>
-        </div>
+    <section class="slide" data-notes="Map each block to a competitor gap so it doesn’t sound like a feature list for its own sake.">
+      <p class="kicker">What that system does</p>
+      <h2>Each piece answers a gap we just named.</h2>
+      <div class="grid g2">
+        <div class="card"><h3>Storefront</h3><p>Mobile story, product, Christmas page. Closes the “Mambally’s tells it better” gap.</p></div>
+        <div class="card"><h3>Pincode before pay</h3><p>Pettikadai already does this. Wrong-city orders stop being a surprise.</p></div>
+        <div class="card"><h3>Razorpay + Shiprocket</h3><p>UPI and labels in one flow, with a courier you choose — not last year’s Delhivery trap.</p></div>
+        <div class="card"><h3>Admin you run</h3><p>Orders, export, corporate leads, <strong>pause when full</strong>. December doesn’t depend on a developer.</p></div>
       </div>
     </section>
 
-    <section class="section section--dark">
-      <div class="container reveal">
-        <p class="section-kicker">Reliability</p>
-        <h2 class="title">Foolproof means a system,<br />not a miracle</h2>
-        <p class="lead">Proven partners, a daily rhythm your staff can learn once, and a kill switch when demand beats capacity.</p>
+    <section class="slide" data-notes="Now — and only now — show money. Lead with market ranges so ₹1.5L feels like a scoped decision, not a random quote.">
+      <p class="kicker">Investment · after the case</p>
+      <h2>Same class of outcome. Scoped to one product, one season.</h2>
+      <div class="bars">
+        <div class="bar"><span>Large agency</span><div class="track"><div class="fill" style="width:100%"></div></div><span>₹8–25L+</span></div>
+        <div class="bar"><span>Mid agency</span><div class="track"><div class="fill" style="width:48%"></div></div><span>₹4.5–12L</span></div>
+        <div class="bar"><span>Fair custom value</span><div class="track"><div class="fill" style="width:32%"></div></div><span>₹4–6.5L</span></div>
+        <div class="bar"><span>This build</span><div class="track"><div class="fill you" style="width:18%"></div></div><span style="color:var(--gold);font-weight:700">₹1,50,000</span></div>
+      </div>
+      <p class="lede" style="margin-top:16px;">Fixed build fee. Hosting, Razorpay’s cut, couriers, photos, and ads are paid to those companies — not buried in this number.</p>
+    </section>
 
-        <div class="pillar-grid">
-          <div class="pillar">
-            <h4>Payments you trust</h4>
-            <p>Razorpay hosted checkout — UPI, cards, netbanking. Settlement to your bank; we never touch card data.</p>
-          </div>
-          <div class="pillar">
-            <h4>Shipping you control</h4>
-            <p>Shiprocket multi-carrier + pincode check before pay — fewer wrong-city nightmares.</p>
-          </div>
-          <div class="pillar">
-            <h4>Tested before launch</h4>
-            <p>Real Kerala pincodes, webhook drills, load suited to 15k visitors — especially peak week.</p>
-          </div>
-          <div class="pillar">
-            <h4>Daily SOP</h4>
-            <p>Admin → confirm → label → ship → customer notified. Repeatable every morning.</p>
-          </div>
-          <div class="pillar">
-            <h4>Pause orders</h4>
-            <p>One toggle when you’re at capacity — no developer on speed dial.</p>
-          </div>
-          <div class="pillar">
-            <h4>Handover</h4>
-            <p>Live training + peak-week playbook so you’re never guessing.</p>
-          </div>
-        </div>
+    <section class="slide" data-notes="If he wants the split: discovery 15, design 28, site 38, admin 42, integrations 22, launch 15. Don’t itemise unless he asks — the bars are enough.">
+      <p class="kicker">What the fee covers</p>
+      <h2>₹1,50,000 from first workshop to go-live training.</h2>
+      <div class="grid g3">
+        <div class="card"><div class="n">₹15k</div><p>Discovery — zones, story, Amazon vs your site</p></div>
+        <div class="card"><div class="n">₹28k</div><p>Design — storefront and admin</p></div>
+        <div class="card"><div class="n">₹38k</div><p>Customer website</p></div>
+        <div class="card"><div class="n">₹42k</div><p>Admin panel</p></div>
+        <div class="card"><div class="n">₹22k</div><p>Razorpay, Shiprocket, email</p></div>
+        <div class="card"><div class="n">₹15k</div><p>Testing, launch, training</p></div>
       </div>
     </section>
 
-    <section class="section section--light" id="investment">
-      <div class="container reveal">
-        <p class="section-kicker">Investment</p>
-        <h2 class="title">What the market charges — and what you pay</h2>
-        <p class="lead">
-          Agencies bill ₹4–12L+ for comparable custom work. This is scoped to <strong>one product, one season, one outcome</strong> — priced at <strong>₹1,50,000</strong> so you reinvest the rest in cakes, ads, and packaging.
-        </p>
-
-        <div class="table-wrap">
-          <table class="data">
-            <thead>
-              <tr>
-                <th>Approach</th>
-                <th>Market rate (India)</th>
-                <th>Your fit</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Top agency · full custom ecommerce</td>
-                <td class="muted">₹8,00,000 – ₹25,00,000+</td>
-                <td>Overkill & slow</td>
-              </tr>
-              <tr>
-                <td>Mid agency · storefront + admin</td>
-                <td class="muted">₹4,50,000 – ₹12,00,000</td>
-                <td>Strong but heavy retainers</td>
-              </tr>
-              <tr>
-                <td>Generic freelancer site</td>
-                <td class="muted">₹2,00,000 – ₹4,50,000</td>
-                <td>Often no real ops layer</td>
-              </tr>
-              <tr>
-                <td>Shopify + apps (2–3 years)</td>
-                <td class="muted">₹2,00,000 – ₹5,00,000+</td>
-                <td>You still rent the store</td>
-              </tr>
-              <tr class="highlight">
-                <td><strong>This build · Grand Reserve platform</strong></td>
-                <td>Comparable value <strong>₹4,00,000 – ₹6,50,000</strong></td>
-                <td>₹1,50,000</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="pricing-grid">
-          <aside class="pricing-card">
-            <p class="label">One-time build fee</p>
-            <p class="big">₹1,50,000</p>
-            <p class="note">
-              Includes everything in scope. No hidden phases inside this number.<br /><br />
-              <strong>Not included:</strong> hosting, Razorpay %, courier per shipment, WhatsApp tools, ads — paid directly to providers.
-            </p>
-            <p class="save">
-              vs. typical <strong>₹4–6.5L</strong> market quote,<br />
-              you keep roughly <strong>₹2.5–5L+</strong> in your pocket.
-            </p>
-          </aside>
-
-          <div>
-            <h3 style="font-family:var(--font-serif); font-size:1.5rem; font-weight:400; margin-bottom:8px;">Where every rupee goes</h3>
-            <p style="font-size:0.875rem; color:var(--text-muted); margin-bottom:20px;">Professional services breakdown</p>
-            <ul class="line-items">
-              <li>
-                <span class="item-title">Discovery, positioning & zone strategy</span>
-                <span class="item-amt">₹15,000</span>
-                <span class="item-desc">Story, pincode rules, Amazon vs D2C pricing, Shopify migration plan</span>
-              </li>
-              <li>
-                <span class="item-title">UX & visual design</span>
-                <span class="item-amt">₹28,000</span>
-                <span class="item-desc">Premium storefront + admin — mobile-first Christmas funnel</span>
-              </li>
-              <li>
-                <span class="item-title">Customer website development</span>
-                <span class="item-amt">₹38,000</span>
-                <span class="item-desc">Home, PDP, festive LP, policies, corporate enquiry, SEO base</span>
-              </li>
-              <li>
-                <span class="item-title">Business admin panel</span>
-                <span class="item-amt">₹42,000</span>
-                <span class="item-desc">Orders, customers, exports, pause orders, leads, settings</span>
-              </li>
-              <li>
-                <span class="item-title">Integrations</span>
-                <span class="item-amt">₹22,000</span>
-                <span class="item-desc">Razorpay webhooks, Shiprocket workflow, transactional email</span>
-              </li>
-              <li>
-                <span class="item-title">QA, deploy, training</span>
-                <span class="item-amt">₹15,000</span>
-                <span class="item-desc">Payment & pincode tests, go-live, handover session</span>
-              </li>
-              <li>
-                <span class="item-title">Total</span>
-                <span class="item-amt">₹1,50,000</span>
-              </li>
-            </ul>
-            <p class="terms">Payment: <strong>40%</strong> on agreement · <strong>40%</strong> on staging demo · <strong>20%</strong> on go-live.</p>
-          </div>
-        </div>
+    <section class="slide" data-notes="Six weeks only holds if Razorpay and Shiprocket accounts open in week one. Ask who owns those logins.">
+      <p class="kicker">If we start now</p>
+      <h2>Six weeks to a launch-ready counter.</h2>
+      <div class="grid g4">
+        <div class="card"><p class="tag">Week 1</p><h3>Kickoff</h3><p>Zones, accounts, content.</p></div>
+        <div class="card"><p class="tag">Weeks 2–3</p><h3>Storefront</h3><p>Design you approve, then build.</p></div>
+        <div class="card"><p class="tag">Weeks 4–5</p><h3>Admin</h3><p>Orders, webhooks, shipping tests.</p></div>
+        <div class="card"><p class="tag">Week 6</p><h3>Live</h3><p>Domain, training, playbook.</p></div>
+      </div>
+      <div class="pay">
+        <div><div class="big">40%</div>To start</div>
+        <div><div class="big">40%</div>Staging you can click</div>
+        <div><div class="big">20%</div>Go-live</div>
       </div>
     </section>
 
-    <section class="section section--light" id="scope">
-      <div class="container reveal">
-        <p class="section-kicker">Deliverables</p>
-        <h2 class="title">Exactly what ₹1.5 lakh delivers</h2>
-
-        <div class="check-grid">
-          <div class="check-col">
-            <h3>Public experience</h3>
-            <ul class="checks">
-              <li>Branded, fast mobile storefront</li>
-              <li>Grand Reserve story page</li>
-              <li>Christmas campaign landing</li>
-              <li>Pincode / zone check before checkout</li>
-              <li>Razorpay cart & checkout</li>
-              <li>Corporate & bulk enquiry</li>
-              <li>SEO-ready structure</li>
-            </ul>
-          </div>
-          <div class="check-col">
-            <h3>Your command centre</h3>
-            <ul class="checks">
-              <li>Secure staff login</li>
-              <li>Order dashboard & alerts</li>
-              <li>Status workflow through delivery</li>
-              <li>Customer history & CSV export</li>
-              <li>Pause new orders toggle</li>
-              <li>Corporate lead tracking</li>
-              <li>Shopify export migration support</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="callout-muted">
-          <strong>Additional (not in ₹1.5L):</strong> hosting (~₹500–₹2,000/mo), Razorpay fees (~2% + GST), Shiprocket per shipment, domain, WhatsApp automation (Interakt), photography, paid ads, optional monthly maintenance after handover.
-        </div>
-      </div>
+    <section class="slide" data-notes="Close on the decision, not the technology. Repeat: rivals already have the doorway. His doorway is the gap. The fee is the small part.">
+      <p class="kicker">The ask</p>
+      <h2>Build the doorway the cake already earned.</h2>
+      <p class="lede">Pandhal and Mambally’s will spend this season looking finished. You can meet them with a site and a back office you own — for a fee that is a fraction of a typical custom quote — or stay famous on Amazon and generic everywhere else.</p>
+      <a class="cta" href="mailto:you@example.com?subject=Thelliyankal%20Grand%20Reserve%20%E2%80%94%20next%20step">If this is the plan, I’ll send the agreement</a>
     </section>
-
-    <section class="section section--dark" id="timeline">
-      <div class="container reveal">
-        <p class="section-kicker">Timeline</p>
-        <h2 class="title">Six weeks to launch-ready</h2>
-        <p class="lead">Assuming fast feedback and Razorpay / Shiprocket accounts opened in week one.</p>
-
-        <div class="steps">
-          <div class="step">
-            <p class="num">Week 1</p>
-            <h4>Kickoff</h4>
-            <p>Zones, pricing, exports, payment & courier accounts.</p>
-          </div>
-          <div class="step">
-            <p class="num">Week 2–3</p>
-            <h4>Storefront</h4>
-            <p>Design + build — the experience worth your product.</p>
-          </div>
-          <div class="step">
-            <p class="num">Week 4–5</p>
-            <h4>Admin & wiring</h4>
-            <p>Orders, webhooks, shipping — tested hard.</p>
-          </div>
-          <div class="step">
-            <p class="num">Week 6</p>
-            <h4>Go live</h4>
-            <p>Domain, training, playbook in your hands.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="finale" id="next">
-      <div class="container reveal">
-        <p class="section-kicker">The ask</p>
-        <h2 class="display">Give Grand Reserve the entrance it deserves.</h2>
-        <p class="lead">
-          You’re not buying pages. You’re buying the best online expression of a product you already proved — for a fraction of what the market normally charges.
-        </p>
-        <div class="finale-cta">
-          <span class="big-price">₹1,50,000 · one-time build</span>
-          <a class="btn btn-primary" href="mailto:you@example.com?subject=Thelliyankal%20Grand%20Reserve%20Platform">Reply to approve →</a>
-          <div class="finale-pills" role="list">
-            <span role="listitem">Align & sign</span>
-            <span role="listitem">Open Razorpay + Shiprocket</span>
-            <span role="listitem">Build & review</span>
-            <span role="listitem">Launch Christmas-ready</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
   </main>
-
-  <footer class="site-footer">
-    <p>Confidential · Thelliyankal Bakers · Custom platform proposal · Build fee ₹1,50,000 (INR)</p>
-    <p style="margin-top:8px;">Prepared by <!-- Your name --> · <!-- email / phone --> · September 2026</p>
-  </footer>
-
+  <div class="bottombar">
+    <div class="counter" id="counter"></div>
+    <div class="dots" id="dots"></div>
+    <div class="nav-btns"><button type="button" id="prev" aria-label="Previous">←</button><button type="button" id="next" aria-label="Next">→</button></div>
+  </div>
+  <div class="notes" id="notes"></div>
   <script>
     (function () {
-      var root = document.documentElement;
-      var stored = localStorage.getItem("proposal-theme");
-      if (stored === "dark" || (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-        root.setAttribute("data-theme", "dark");
+      var slides = [].slice.call(document.querySelectorAll(".slide"));
+      var i = 0, dots = document.getElementById("dots"), notes = document.getElementById("notes");
+      slides.forEach(function (_, idx) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.setAttribute("aria-label", "Slide " + (idx + 1));
+        b.addEventListener("click", function () { go(idx); });
+        dots.appendChild(b);
+      });
+      function go(n) {
+        i = Math.max(0, Math.min(slides.length - 1, n));
+        slides.forEach(function (s, idx) { s.classList.toggle("is-active", idx === i); });
+        [].forEach.call(dots.children, function (d, idx) { d.classList.toggle("is-on", idx === i); });
+        document.getElementById("counter").textContent = (i + 1) + " / " + slides.length;
+        notes.textContent = slides[i].getAttribute("data-notes") || "";
       }
-
-      var themeBtn = document.getElementById("theme-toggle");
-      if (themeBtn) {
-        themeBtn.addEventListener("click", function () {
-          var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-          if (next === "light") root.removeAttribute("data-theme");
-          else root.setAttribute("data-theme", "dark");
-          localStorage.setItem("proposal-theme", next);
-        });
-      }
-
-      var menuBtn = document.getElementById("menu-toggle");
-      var nav = document.getElementById("site-nav");
-      if (menuBtn && nav) {
-        menuBtn.addEventListener("click", function () {
-          var open = nav.classList.toggle("is-open");
-          menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
-        });
-      }
-
-      var els = document.querySelectorAll(".reveal");
-      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (reduceMotion || !window.IntersectionObserver) {
-        els.forEach(function (el) { el.classList.add("is-visible"); });
-        return;
-      }
-      var io = new IntersectionObserver(
-        function (entries) {
-          entries.forEach(function (e) {
-            if (e.isIntersecting) {
-              e.target.classList.add("is-visible");
-              io.unobserve(e.target);
-            }
-          });
-        },
-        { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
-      );
-      els.forEach(function (el) { io.observe(el); });
+      document.getElementById("next").onclick = function () { go(i + 1); };
+      document.getElementById("prev").onclick = function () { go(i - 1); };
+      document.addEventListener("keydown", function (e) {
+        if (["ArrowRight", " ", "PageDown"].indexOf(e.key) >= 0) { e.preventDefault(); go(i + 1); }
+        else if (["ArrowLeft", "PageUp", "Backspace"].indexOf(e.key) >= 0) { e.preventDefault(); go(i - 1); }
+        else if (e.key === "n" || e.key === "N") document.body.classList.toggle("show-notes");
+        else if (e.key === "f" || e.key === "F") {
+          if (!document.fullscreenElement) document.documentElement.requestFullscreen && document.documentElement.requestFullscreen();
+          else document.exitFullscreen && document.exitFullscreen();
+        }
+      });
+      document.getElementById("deck").addEventListener("click", function (e) {
+        if (e.target.closest("a, button")) return;
+        var x = e.clientX / window.innerWidth;
+        if (x > 0.75) go(i + 1); else if (x < 0.25) go(i - 1);
+      });
+      go(0);
     })();
   </script>
 </body>
