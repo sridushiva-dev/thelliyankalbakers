@@ -11,6 +11,11 @@ Business and proposal materials for Thelliyankal Bakers digital platform work.
 
 Open the HTML file in a browser to review. Replace `you@example.com` in the CTA with your email.
 
-## Cursor skills (vendored)
+## Cursor skills
 
-[awesome-cursor-skills/](awesome-cursor-skills/) — community skills including **using-ui-stack** for design-system-driven UI. See [SOURCE.md](awesome-cursor-skills/SOURCE.md).
+| Source | Purpose |
+|--------|---------|
+| [TypeUI](docs/TYPEUI.md) | MCP + **premium** design system, fundamentals, Thelliyankal brand skill |
+| [awesome-cursor-skills/](awesome-cursor-skills/) | Community skills (e.g. **using-ui-stack**). See [SOURCE.md](awesome-cursor-skills/SOURCE.md). |
+
+**Quick start (desktop Cursor):** enable MCP from `.cursor/mcp.json`, sign in at [typeui.sh](https://www.typeui.sh/docs/guides/cursor), then edit UI with the agent.

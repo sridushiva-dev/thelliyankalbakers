@@ -9,13 +9,12 @@ globs:
 alwaysApply: false
 ---
 
-# TypeUI in this project
+# TypeUI in this project (UI file edits)
 
-When creating or changing user interfaces:
+Cloud-first: see `.cursor/rules/typeui-cloud-only.mdc` (always on). When creating or changing user interfaces:
 
-1. **Design system** — Read and follow `.cursor/skills/design-system/SKILL.md` (TypeUI **premium** registry). Prefer semantic tokens, explicit interaction states, and WCAG 2.2 AA.
-2. **Fundamentals** — For hierarchy, spacing, typography, and a11y conflicts, read `.cursor/skills/typeui-fundamentals/SKILL.md` and its linked modules in that folder.
-3. **Brand override** — For Thelliyankal client work, also read `.cursor/skills/thelliyankal-brand/SKILL.md` (warm luxury / rum & gold, not default blue primary).
-4. **MCP** — If TypeUI MCP is connected (see `docs/TYPEUI.md`), use it to install design systems, UI prompt variations, and layout options before large UI builds.
+1. **Design system** — `.cursor/skills/design-system/SKILL.md` (switch via `typeui/vendor/design-skills/<slug>/`).
+2. **Fundamentals** — `.cursor/skills/typeui-fundamentals/`.
+3. **Brand** — `.cursor/skills/thelliyankal-brand/SKILL.md`.
 
-Do not ship broken layouts (narrow column text, overlapping grids). Use an 8px spacing rhythm and 44px minimum touch targets on interactive controls.
+Do not ship broken layouts. Use 8px spacing rhythm and 44px minimum touch targets.

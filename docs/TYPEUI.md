@@ -1,68 +1,61 @@
-# TypeUI integration (Cursor)
+# TypeUI on Cloud Agent only
 
-This repo uses [TypeUI](https://www.typeui.sh) so Cursor can build consistent, premium UI — especially `proposals/thelliyankal-pitch.html` and future product screens.
+This repo is set up for **Cursor Cloud Agents**, not desktop MCP setup. You do **not** need Cursor Desktop or local “Sign in to TypeUI” flows for day-to-day work.
 
-## 1. MCP server (recommended)
+## How Cloud uses TypeUI
 
-TypeUI exposes a remote MCP server. **On your machine:**
+| Layer | What it does |
+|--------|----------------|
+| **Embedded skills (primary)** | Markdown design systems committed in the repo. Every cloud run can read them. |
+| **Cursor rules** | `.cursor/rules/typeui-cloud-only.mdc` (`alwaysApply: true`) forces agents to load skills before UI work. |
+| **Hosted MCP (optional)** | TypeUI’s server at `https://mcp.typeui.sh` needs **TypeUI account auth**. Cloud cannot complete interactive login like desktop. Only use MCP if you configure auth on your **[Cloud Environment](https://cursor.com/docs/cloud-agent/settings)** (team/personal secrets + MCP policy). Otherwise ignore MCP. |
 
-1. Open **Cursor → Settings → MCP** (or use the project file below).
-2. Ensure the **typeui** server is enabled:
-   - URL: `https://mcp.typeui.sh`
-3. Or open the official installer: [Use TypeUI with Cursor](https://www.typeui.sh/docs/guides/cursor) → **Install in Cursor**.
-4. Sign in with TypeUI when Cursor prompts you (required for MCP resources).
-
-**Project config (already in repo):** `.cursor/mcp.json`
-
-```json
-{
-  "mcpServers": {
-    "typeui": {
-      "url": "https://mcp.typeui.sh"
-    }
-  }
-}
-```
-
-After connecting, you can ask Cursor to pick a design system from your TypeUI workspace, generate UI prompt variations (e.g. pricing sections), and publish updated markdown from the TypeUI dashboard.
-
-## 2. Local design skills (works without MCP)
-
-Installed via CLI:
-
-```bash
-npx typeui.sh pull premium -p cursor -f skill
-```
+## Files to know
 
 | Path | Purpose |
 |------|---------|
-| `.cursor/skills/design-system/SKILL.md` | TypeUI **premium** design system |
-| `.cursor/skills/typeui-fundamentals/` | UI/UX fundamentals (spacing, a11y, typography) |
+| `.cursor/skills/design-system/SKILL.md` | **Active** design system (default: **premium**) |
+| `.cursor/skills/typeui-fundamentals/` | TypeUI UI/UX fundamentals |
 | `.cursor/skills/thelliyankal-brand/SKILL.md` | Grand Reserve brand overrides |
+| `typeui/vendor/design-skills/*/` | Extra registry styles (**cafe**, **editorial**, **storytelling**, **refined**, …) |
+| `.cursor/environment.json` | Cloud environment: allowlists TypeUI MCP URL; `install` refreshes premium skill if missing |
 
-Switch registry style (e.g. **cafe**, **editorial**, **storytelling**):
+## Switch design style (in cloud chat)
+
+Ask the agent:
+
+> Use the **cafe** TypeUI design skill for the proposal.
+
+The agent should copy `typeui/vendor/design-skills/cafe/SKILL.md` → `.cursor/skills/design-system/SKILL.md` and then edit UI.
+
+Or run in the cloud terminal:
 
 ```bash
-npx typeui.sh pull cafe -p cursor -f skill
+cp typeui/vendor/design-skills/cafe/SKILL.md .cursor/skills/design-system/SKILL.md
 ```
 
-Install fundamentals only:
+## Refresh skills from TypeUI registry
 
 ```bash
-npx skills add https://github.com/bergside/typeui --skill typeui-fundamentals
+npx typeui.sh pull premium -p cursor -f skill
+npx skills add https://github.com/bergside/typeui --skill typeui-fundamentals -y
+./scripts/sync-typeui-vendor.sh   # re-copy vendor bundle from awesome-design-skills
 ```
 
-## 3. Cursor rule
+## What we removed on purpose
 
-`.cursor/rules/typeui-ui.mdc` tells the agent to load the skills above when editing UI files.
+- **`.cursor/mcp.json`** — desktop-oriented; not used for cloud-only workflow.
 
-## 4. Cloud Agent note
+## Optional: TypeUI MCP on Cloud (advanced)
 
-Cloud runs may not have your TypeUI MCP login. **Skills in `.cursor/skills/` still apply**; enable MCP on desktop for full TypeUI dashboard + variations.
+1. Open your repo’s **Cloud Environment** in the Cursor dashboard.
+2. Ensure MCP is not fully disabled and allowlist includes `https://mcp.typeui.sh` (see `.cursor/environment.json`).
+3. If TypeUI provides an API token or OAuth for headless use, add it as an environment **secret** per TypeUI / Cursor docs.
+
+Until that works, **embedded skills are the supported path** — same TypeUI registry content, no live server.
 
 ## Links
 
-- [TypeUI docs](https://www.typeui.sh/docs)
-- [MCP server](https://www.typeui.sh/docs/mcp-server)
-- [Design skills registry](https://www.typeui.sh/design-skills)
-- [GitHub: bergside/typeui](https://github.com/bergside/typeui)
+- [TypeUI](https://www.typeui.sh)
+- [Design skills gallery](https://www.typeui.sh/design-skills)
+- [Registry source](https://github.com/bergside/awesome-design-skills)
