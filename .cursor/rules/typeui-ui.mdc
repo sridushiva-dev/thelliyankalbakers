@@ -1,0 +1,20 @@
+---
+description: Use TypeUI design system and fundamentals when building or editing UI (HTML, React, CSS).
+globs:
+  - proposals/**
+  - "**/*.html"
+  - "**/*.css"
+  - "**/*.tsx"
+  - "**/*.jsx"
+alwaysApply: false
+---
+
+# TypeUI in this project (UI file edits)
+
+Cloud-first: see `.cursor/rules/typeui-cloud-only.mdc` (always on). When creating or changing user interfaces:
+
+1. **Design system** — `.cursor/skills/design-system/SKILL.md` (switch via `typeui/vendor/design-skills/<slug>/`).
+2. **Fundamentals** — `.cursor/skills/typeui-fundamentals/`.
+3. **Brand** — `.cursor/skills/thelliyankal-brand/SKILL.md`.
+
+Do not ship broken layouts. Use 8px spacing rhythm and 44px minimum touch targets.

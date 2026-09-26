@@ -1,0 +1,20 @@
+---
+description: Cloud Agent only — always use vendored TypeUI skills (no desktop MCP required).
+alwaysApply: true
+---
+
+# TypeUI on Cloud Agent (embedded)
+
+This project uses **TypeUI without Cursor Desktop**. Do not tell the user to open local MCP settings.
+
+Before editing any UI (`proposals/**`, HTML, CSS, React):
+
+1. Read `.cursor/skills/thelliyankal-brand/SKILL.md` (Thelliyankal / Grand Reserve tokens).
+2. Read `.cursor/skills/design-system/SKILL.md` (active registry: **premium**). Alternates live in `typeui/vendor/design-skills/{cafe,editorial,storytelling,refined}/`.
+3. Read `.cursor/skills/typeui-fundamentals/SKILL.md` and follow linked modules for spacing, typography, accessibility, and interaction states.
+
+**Switch design style in cloud:** copy `typeui/vendor/design-skills/<slug>/SKILL.md` over `.cursor/skills/design-system/SKILL.md` (e.g. `cafe` for bakery aesthetic).
+
+**Optional MCP:** TypeUI hosted MCP (`https://mcp.typeui.sh`) only works on Cloud if the environment has TypeUI auth configured in the Cursor Cloud Environment dashboard — not via desktop. If MCP tools are unavailable, continue with embedded skills only.
+
+Quality bar: 8px spacing grid, 44px touch targets, focus-visible rings, no broken multi-column text layouts.

@@ -1,0 +1,10 @@
+{
+  "name": "thelliyankalbakers — cloud",
+  "install": "test -f .cursor/skills/design-system/SKILL.md || npx --yes typeui.sh pull premium -p cursor -f skill",
+  "mcpServerAllowlist": [
+    {
+      "name": "typeui",
+      "serverUrl": "https://mcp.typeui.sh"
+    }
+  ]
+}
