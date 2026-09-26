@@ -1,56 +1,36 @@
 ---
-name: Thelliyankal Grand Reserve Pitch — Mission Deck
-mode: futuristic
+name: Thelliyankal Grand Reserve Pitch
 colors:
-  void: "#030308"
-  deep: "#0C0C14"
-  text: "#ECEAE6"
-  muted: "rgba(236, 234, 230, 0.62)"
-  amber: "#FFB020"
-  cyan: "#2EE8FF"
-  magenta: "#FF3D8A"
-  ok: "#3DFF9A"
+  bg: "#0C0A09"
+  elevated: "#141110"
+  text: "#FAF6F0"
+  gold: "#E8B84A"
 typography:
-  display: "Syne"
-  mono: "IBM Plex Mono"
+  display: "Fraunces"
+  body: "DM Sans"
 layout:
-  maxWidth: "1180px"
-  hud: fixed top briefing bar
-  rail: fixed left scene progress
-motion:
-  ambient: slow orb drift + perspective grid
-  reveal: intersection fade-up
+  maxWidth: "1040px"
 ---
 
-# Mission Deck · Futuristic pitch experience
+# Pitch HTML · design reference
 
-The client pitch HTML (`thelliyankal-pitch.html`) is intentionally **not** a café brochure. It reads as a **product launch briefing**: dark void, holographic amber (rum / Grand Reserve), cyan telemetry, glass modules, monospace labels.
+Client-facing proposal for Thelliyankal Bakers (Grand Reserve, ₹1.5L build).
 
-## Experience goals
+## Direction
 
-1. **Eyebrow-raising first impression** — full-viewport hero, gradient headline, live “briefing” HUD.
-2. **Signal the build quality** — if the *proposal* feels this considered, the storefront will too.
-3. **Keep all business facts** — same ₹1.5L scope, table, ledger, timeline, deliverables.
+**Premium dark luxury** — reads like a serious business proposal, not a dev dashboard. Warm gold on near-black, Fraunces headlines, DM Sans body. No monospace body copy, no sci-fi HUD jargon.
 
-## Visual system
+## Layout rules
 
-| Element | Treatment |
-|---------|-----------|
-| Background | Fixed perspective grid + amber/cyan orbs + film noise |
-| Navigation | HUD + left progress rail (desktop) |
-| Sections | Tagged `//` labels, Syne uppercase headlines |
-| Gap | Dual “terminal” panels (win vs status quo) |
-| Vision | Bento glass modules `Module 01–05` |
-| Investment | Vault table + glowing sticky build-fee panel |
-| Timeline | Horizontal mission phases (scroll-snap on mobile) |
-| CTA | Amber gradient “Initialize / Transmit approval” |
+- `minmax(0, 1fr)` on grid children so text never collides with sticky panels.
+- Build fee uses `clamp()` for `₹1,50,000` — must stay inside the card at 280px width.
+- Investment: comparison table first, then fee card + breakdown side by side (stack on mobile).
 
-## Accessibility
+## Copy tone
 
-- `color-scheme: dark`, skip link, 44px targets, focus rings (cyan).
-- `prefers-reduced-motion`: disable drift, pulse, scroll cue, hover lifts.
-- Print stylesheet simplifies to readable light output.
+- Benefit-led, plain English, specific numbers (reviews, visitors, weeks).
+- CTAs: “Review proposal”, “Email to proceed” — not “Initialize” / “Transmit”.
 
-## Agent instruction
+## QA
 
-When editing the pitch HTML, preserve the **Mission Deck** atmosphere unless the user explicitly asks for a different mode. Do not revert to generic light SaaS cards.
+Before shipping changes, screenshot `#investment` at 1280px and 390px (Playwright or browser).
