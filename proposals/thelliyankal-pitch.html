@@ -3,70 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Thelliyankal Bakers — Grand Reserve Digital Proposal</title>
+  <title>Thelliyankal Bakers — Grand Reserve Proposal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <!-- UI: TypeUI premium + thelliyankal-brand (.cursor/skills) + using-ui-stack conventions -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
+    /* TypeUI cafe + Thelliyankal brand — cloud vendored skills */
     :root {
-      /* 60% — neutral surfaces */
-      --surface-60: #f8fafc;
-      --surface-elevated: #ffffff;
-      --surface-muted: #f1f5f9;
-      /* 30% — brand (warm stone / rum) */
-      --brand-30: #1e293b;
-      --brand-30-muted: #334155;
-      /* 10% — accent CTA */
-      --accent-10: #c2410c;
-      --accent-10-hover: #9a3412;
-      --accent-10-soft: #ea580c;
-      --accent-10-pale: #ffedd5;
-      /* Semantic */
-      --success: #15803d;
-      --text-primary: #0f172a;
-      --text-secondary: #475569;
-      --text-tertiary: #94a3b8;
-      --border: #e2e8f0;
-      --border-strong: #cbd5e1;
-      /* Dark sections (slate-950, not #000) */
-      --dark-bg: #020617;
-      --dark-elevated: #0f172a;
-      --dark-text: #f8fafc;
-      --dark-text-muted: #94a3b8;
-      --dark-border: rgba(248, 250, 252, 0.1);
-      /* Aliases */
-      --bg-light: var(--surface-60);
-      --bg-white: var(--surface-elevated);
-      --bg-dark: var(--dark-bg);
-      --bg-dark-elevated: var(--dark-elevated);
-      --text-dark: var(--text-primary);
-      --text-muted: var(--text-secondary);
-      --text-on-dark: var(--dark-text);
-      --text-on-dark-muted: var(--dark-text-muted);
-      --border-dark: var(--dark-border);
-      --accent: var(--accent-10);
-      --accent-soft: var(--accent-10-soft);
-      --accent-pale: var(--accent-10-pale);
-      /* Type scale 1.25 */
-      --text-xs: 0.75rem;
-      --text-sm: 0.875rem;
-      --text-base: 1rem;
-      --text-lg: 1.125rem;
-      --text-xl: 1.25rem;
-      --text-2xl: 1.5rem;
-      --text-3xl: 1.875rem;
-      --text-4xl: 2.25rem;
-      --leading-tight: 1.25;
-      --leading-normal: 1.5;
-      --leading-relaxed: 1.75;
+      --primary: #5d4432;
+      --primary-dark: #3e2b1e;
+      --secondary: #e9e3dd;
+      --surface: #f9f7f5;
+      --surface-card: #ffffff;
+      --accent: #d97706;
+      --accent-hover: #b45309;
+      --text: #3e2b1e;
+      --text-muted: #6b5a4d;
+      --text-on-primary: #f9f7f5;
+      --border: #ddd5cc;
+      --success: #16a34a;
       --radius-sm: 8px;
-      --radius-md: 16px;
-      --radius-lg: 24px;
-      --radius-xl: 32px;
-      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
-      --shadow-md: 0 16px 48px rgba(15, 23, 42, 0.08);
-      --shadow-lg: 0 32px 64px rgba(15, 23, 42, 0.12);
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-pill: 999px;
       --space-1: 8px;
       --space-2: 16px;
       --space-3: 24px;
@@ -74,95 +33,39 @@
       --space-5: 48px;
       --space-6: 64px;
       --space-7: 96px;
-      --space-xs: var(--space-1);
-      --space-sm: var(--space-2);
-      --space-md: var(--space-3);
-      --space-lg: var(--space-5);
-      --space-xl: var(--space-6);
-      --space-2xl: var(--space-7);
-      --max: 1120px;
-      --font-serif: "Instrument Serif", Georgia, serif;
-      --font-sans: "Inter", system-ui, sans-serif;
-      --z-sticky: 20;
-      --ring: 0 0 0 2px var(--surface-elevated), 0 0 0 4px var(--accent-10-soft);
-      --duration: 200ms;
-      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    html[data-theme="dark"] {
-      --surface-60: #020617;
-      --surface-elevated: #0f172a;
-      --surface-muted: #1e293b;
-      --text-primary: #f8fafc;
-      --text-secondary: #cbd5e1;
-      --text-tertiary: #64748b;
-      --border: #1e293b;
-      --border-strong: #334155;
-      --accent-10-pale: rgba(234, 88, 12, 0.15);
-      --shadow-md: 0 16px 48px rgba(0, 0, 0, 0.35);
-    }
-
-    html[data-theme="dark"] .section--light {
-      background: var(--surface-60);
-    }
-
-    html[data-theme="dark"] .hero {
-      background:
-        radial-gradient(ellipse 100% 80% at 70% -20%, rgba(234, 88, 12, 0.15), transparent 50%),
-        var(--surface-60);
-    }
-
-    html[data-theme="dark"] .feature-row:not(.feature-row--dark) {
-      background: var(--surface-elevated);
-      border-color: var(--border);
-    }
-
-    html[data-theme="dark"] .feature-row:not(.feature-row--dark) .feature-title {
-      color: var(--text-primary);
-    }
-
-    html[data-theme="dark"] .table-wrap,
-    html[data-theme="dark"] .line-items {
-      background: var(--surface-elevated);
-      border-color: var(--border);
-    }
-
-    html[data-theme="dark"] table.data th {
-      background: var(--surface-muted);
-    }
-
-    html[data-theme="dark"] .callout-muted {
-      background: var(--surface-muted);
+      --max: 1080px;
+      --font-ui: "Poppins", system-ui, sans-serif;
+      --font-display: "Fraunces", Georgia, serif;
+      --shadow: 0 4px 24px rgba(62, 43, 30, 0.06);
+      --shadow-lg: 0 20px 50px rgba(62, 43, 30, 0.1);
+      --ring: 0 0 0 2px var(--surface-card), 0 0 0 4px var(--accent);
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --dur: 200ms;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html {
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-    }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 
     body {
-      font-family: var(--font-sans);
-      font-size: 16px;
-      line-height: 1.6;
-      color: var(--text-dark);
-      background: var(--bg-light);
+      font-family: var(--font-ui);
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--surface);
     }
 
-    img { max-width: 100%; display: block; }
-
-    a { color: var(--accent); text-decoration: none; }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
     .skip {
       position: absolute;
       left: -9999px;
       padding: var(--space-2);
-      background: var(--brand-30);
-      color: var(--dark-text);
+      background: var(--primary);
+      color: var(--text-on-primary);
       border-radius: var(--radius-sm);
     }
-
     .skip:focus {
       left: var(--space-2);
       top: var(--space-2);
@@ -171,130 +74,59 @@
       box-shadow: var(--ring);
     }
 
-    /* ——— Buttons (5 states) ——— */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-1);
-      min-height: 44px;
-      min-width: 44px;
-      padding: 12px 24px;
-      font-family: var(--font-sans);
-      font-size: var(--text-sm);
-      font-weight: 600;
-      line-height: var(--leading-tight);
-      border-radius: 100px;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background var(--duration) var(--ease-out), transform var(--duration) var(--ease-out), box-shadow var(--duration) var(--ease-out);
-    }
-
-    .btn-primary {
-      background: var(--accent-10);
-      color: #fff;
-      box-shadow: 0 4px 14px rgba(194, 65, 12, 0.35);
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-10-hover);
-      text-decoration: none;
-      color: #fff;
-    }
-
-    .btn-primary:active {
-      transform: scale(0.98);
-    }
-
-    .btn-primary:focus-visible {
-      outline: none;
-      box-shadow: var(--ring);
-    }
-
-    .btn-primary:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    .btn-ghost {
-      background: transparent;
-      color: var(--text-secondary);
-      border: 1px solid var(--border);
-    }
-
-    .btn-ghost:hover {
-      background: var(--surface-muted);
-      color: var(--text-primary);
-    }
-
-    .btn-ghost:focus-visible {
-      outline: none;
-      box-shadow: var(--ring);
-    }
-
-    .btn-icon {
-      padding: 10px;
-      border-radius: var(--radius-sm);
-      min-width: 44px;
-    }
-
-    /* ——— Top bar ——— */
+    /* —— Top bar —— */
     .topbar {
       position: sticky;
       top: 0;
-      z-index: var(--z-sticky);
-      background: color-mix(in srgb, var(--surface-60) 88%, transparent);
-      backdrop-filter: blur(16px);
+      z-index: 20;
+      background: color-mix(in srgb, var(--surface-card) 92%, transparent);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
 
     .topbar-inner {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 14px 24px;
+      padding: var(--space-2) var(--space-3);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: var(--space-2);
+      position: relative;
     }
 
-    .brand {
-      font-family: var(--font-serif);
+    .logo {
+      font-family: var(--font-display);
       font-size: 1.125rem;
-      font-weight: 400;
-      color: var(--text-dark);
+      font-weight: 600;
+      color: var(--primary-dark);
       letter-spacing: -0.02em;
     }
 
-    .topbar nav {
+    .logo span { font-weight: 500; color: var(--text-muted); font-family: var(--font-ui); font-size: 0.8125rem; margin-left: 8px; }
+
+    nav#site-nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 4px 20px;
+      gap: 4px;
     }
 
     .nav-link {
       display: inline-flex;
       align-items: center;
       min-height: 44px;
-      padding: 8px 12px;
-      font-size: var(--text-sm);
+      padding: 8px 14px;
+      font-size: 0.875rem;
       font-weight: 500;
-      color: var(--text-secondary);
-      text-decoration: none;
+      color: var(--text-muted);
       border-radius: var(--radius-sm);
-      transition: color var(--duration) var(--ease-out), background var(--duration) var(--ease-out);
+      transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
     }
 
     .nav-link:hover {
-      color: var(--text-primary);
-      background: var(--surface-muted);
+      background: var(--secondary);
+      color: var(--primary-dark);
       text-decoration: none;
-    }
-
-    .nav-link:active {
-      transform: scale(0.98);
     }
 
     .nav-link:focus-visible {
@@ -302,27 +134,23 @@
       box-shadow: var(--ring);
     }
 
-    .topbar-actions {
-      display: flex;
-      align-items: center;
-      gap: var(--space-1);
-    }
+    .topbar-actions { display: flex; align-items: center; gap: var(--space-1); }
 
     .chip {
       font-size: 0.6875rem;
       font-weight: 600;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      padding: 6px 12px;
-      border-radius: 100px;
-      background: var(--text-dark);
-      color: var(--text-on-dark);
+      padding: 8px 14px;
+      border-radius: var(--radius-pill);
+      background: var(--secondary);
+      color: var(--primary);
     }
 
     .menu-toggle { display: none; }
 
-    @media (max-width: 720px) {
-      .topbar nav {
+    @media (max-width: 768px) {
+      nav#site-nav {
         display: none;
         position: absolute;
         top: 100%;
@@ -330,100 +158,126 @@
         right: 0;
         flex-direction: column;
         padding: var(--space-2);
-        background: var(--surface-elevated);
+        background: var(--surface-card);
         border-bottom: 1px solid var(--border);
-        box-shadow: var(--shadow-md);
+        box-shadow: var(--shadow-lg);
       }
-
-      .topbar nav.is-open { display: flex; }
-
+      nav#site-nav.is-open { display: flex; }
       .menu-toggle { display: inline-flex; }
       .chip { display: none; }
     }
 
-    /* ——— Sections ——— */
-    .section {
-      padding: var(--space-2xl) var(--space-3);
+    /* —— Buttons —— */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 28px;
+      font-family: var(--font-ui);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      border-radius: var(--radius-pill);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background var(--dur) var(--ease), transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
     }
 
-    .section--light {
-      background: var(--surface-60);
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(217, 119, 6, 0.35);
     }
 
-    .section--dark {
-      background: var(--dark-bg);
-      color: var(--dark-text);
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      color: #fff;
+      text-decoration: none;
     }
 
-    .section--dark .section-kicker { color: var(--accent-soft); }
-    .section--dark .lead { color: var(--text-on-dark-muted); }
+    .btn-primary:active { transform: scale(0.98); }
+    .btn-primary:focus-visible { outline: none; box-shadow: var(--ring); }
 
-    .container {
-      max-width: var(--max);
-      margin: 0 auto;
+    .btn-ghost {
+      background: var(--surface-card);
+      color: var(--primary);
+      border: 1px solid var(--border);
     }
 
-    .section-kicker {
+    .btn-ghost:hover { background: var(--secondary); text-decoration: none; }
+    .btn-ghost:focus-visible { outline: none; box-shadow: var(--ring); }
+
+    .btn-icon { min-width: 44px; padding: 10px; border-radius: var(--radius-sm); }
+
+    /* —— Layout —— */
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 var(--space-3); }
+
+    .section { padding: var(--space-6) 0; }
+    .section--tight { padding: var(--space-5) 0; }
+
+    .section--warm {
+      background: var(--secondary);
+    }
+
+    .section--coffee {
+      background: linear-gradient(165deg, var(--primary) 0%, #4a3628 100%);
+      color: var(--text-on-primary);
+    }
+
+    .kicker {
       font-size: 0.75rem;
       font-weight: 600;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: var(--space-sm);
+      margin-bottom: var(--space-2);
     }
+
+    .section--coffee .kicker { color: #fcd34d; }
+
+    h1, h2, h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.02em; }
 
     .display {
-      font-family: var(--font-serif);
-      font-size: clamp(2.5rem, 5.5vw, 3.75rem);
-      font-weight: 400;
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-      color: inherit;
-      margin-bottom: var(--space-md);
+      font-size: clamp(2.25rem, 5.5vw, 3.5rem);
+      line-height: 1.1;
+      color: var(--primary-dark);
+      margin-bottom: var(--space-3);
     }
 
-    .display em {
-      font-style: italic;
-      color: var(--accent-soft);
+    .section--coffee .display { color: var(--text-on-primary); }
+
+    .title {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      line-height: 1.15;
+      margin-bottom: var(--space-3);
     }
 
-    .section--light .display em { color: var(--accent); }
-
-    h2.title {
-      font-family: var(--font-serif);
-      font-size: clamp(2rem, 4vw, 2.75rem);
-      font-weight: 400;
-      line-height: 1.12;
-      letter-spacing: -0.02em;
-      margin-bottom: var(--space-md);
-    }
+    .section--coffee .title { color: var(--text-on-primary); }
 
     .lead {
-      font-size: 1.125rem;
-      line-height: 1.65;
+      font-size: 1.0625rem;
       color: var(--text-muted);
-      max-width: 42rem;
-      margin-bottom: var(--space-lg);
+      max-width: 38rem;
+      margin-bottom: var(--space-4);
     }
 
-    .lead strong { color: var(--text-dark); font-weight: 600; }
-    .section--dark .lead strong { color: var(--text-on-dark); }
+    .section--coffee .lead { color: rgba(249, 247, 245, 0.85); }
+    .lead strong { color: var(--text); font-weight: 600; }
+    .section--coffee .lead strong { color: #fff; }
 
-    /* ——— Hero ——— */
+    /* —— Hero —— */
     .hero {
-      padding: var(--space-xl) 24px var(--space-2xl);
+      padding: var(--space-6) 0 var(--space-7);
       background:
-        radial-gradient(ellipse 100% 80% at 70% -20%, rgba(217, 119, 6, 0.12), transparent 50%),
-        var(--bg-light);
-      border-bottom: 1px solid var(--border);
+        radial-gradient(ellipse 90% 70% at 100% 0%, rgba(233, 227, 221, 0.9), transparent 55%),
+        var(--surface);
     }
 
     .hero-grid {
-      max-width: var(--max);
-      margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-xl);
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: var(--space-5);
       align-items: center;
     }
 
@@ -431,11 +285,25 @@
       .hero-grid { grid-template-columns: 1fr; }
     }
 
-    .hero-copy .badge-row {
-      display: flex;
+    .hero-badge {
+      display: inline-flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: var(--space-md);
+      gap: 10px;
+      padding: 8px 16px;
+      background: var(--secondary);
+      border-radius: var(--radius-pill);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--primary);
+      margin-bottom: var(--space-3);
+    }
+
+    .hero-badge::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
     }
 
     .hero-actions {
@@ -443,278 +311,215 @@
       flex-wrap: wrap;
       gap: var(--space-2);
       align-items: center;
-      margin-top: var(--space-3);
+      margin-top: var(--space-4);
     }
 
-    .hero-copy .badge-row .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--accent-10-soft);
-      box-shadow: 0 0 12px rgba(234, 88, 12, 0.5);
+    .price-tag {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 8px;
+      padding: 10px 18px;
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      box-shadow: var(--shadow);
     }
 
-    .hero-copy .badge-row span {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
+    .price-tag .num {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      color: var(--primary-dark);
     }
 
-    .hero-visual {
-      position: relative;
-      min-height: 420px;
-      border-radius: var(--radius-xl);
-      background: linear-gradient(145deg, #1c1917 0%, #292524 50%, #1c1917 100%);
-      overflow: hidden;
+    .price-tag .meta { font-size: 0.8125rem; color: var(--text-muted); }
+
+    .hero-card {
+      background: var(--primary);
+      color: var(--text-on-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
       box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
     }
 
-    .hero-visual::before {
+    .hero-card::after {
       content: "";
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(circle at 30% 40%, rgba(217, 119, 6, 0.35), transparent 45%),
-        radial-gradient(circle at 80% 70%, rgba(180, 83, 9, 0.2), transparent 40%);
+      background: radial-gradient(circle at 80% 20%, rgba(217, 119, 6, 0.25), transparent 50%);
+      pointer-events: none;
     }
 
-    .hero-visual-content {
-      position: relative;
-      z-index: 1;
-      height: 100%;
-      padding: var(--space-lg);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .hero-card-inner { position: relative; z-index: 1; }
+
+    .hero-card h2 {
+      font-size: 1.5rem;
+      line-height: 1.3;
+      margin-bottom: var(--space-4);
+      font-weight: 600;
     }
 
-    .hero-visual h2 {
-      font-family: var(--font-serif);
-      font-size: 1.75rem;
-      font-weight: 400;
-      color: var(--text-on-dark);
-      line-height: 1.2;
-      max-width: 14ch;
-    }
-
-    .stat-row {
+    .stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      gap: var(--space-2);
     }
 
-    @media (max-width: 500px) {
-      .stat-row { grid-template-columns: 1fr; }
+    @media (max-width: 480px) {
+      .stats { grid-template-columns: 1fr; }
     }
 
     .stat {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--border-dark);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: var(--radius-md);
-      padding: 16px;
+      padding: var(--space-2);
     }
 
-    .stat .value {
-      font-family: var(--font-serif);
-      font-size: 1.75rem;
-      color: #fbbf24;
-      line-height: 1;
-      margin-bottom: 6px;
+    .stat .v {
+      font-family: var(--font-display);
+      font-size: 1.625rem;
+      color: #fcd34d;
+      line-height: 1.1;
     }
 
-    .stat .label {
+    .stat .l {
       font-size: 0.6875rem;
-      line-height: 1.4;
-      color: var(--text-on-dark-muted);
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.06em;
+      opacity: 0.75;
+      margin-top: 4px;
     }
 
-    .price-pill {
-      display: inline-flex;
-      align-items: baseline;
-      gap: var(--space-1);
-      padding: 12px 20px;
-      background: var(--surface-elevated);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .price-pill .amount {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      color: var(--text-dark);
-    }
-
-    .price-pill .meta {
-      font-size: 0.8125rem;
-      color: var(--text-muted);
-    }
-
-    /* ——— Gap cards ——— */
-    .compare-two {
+    /* —— Gap —— */
+    .gap-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: var(--space-md);
-      margin-top: var(--space-lg);
+      gap: var(--space-3);
+      margin-top: var(--space-4);
     }
 
-    @media (max-width: 700px) {
-      .compare-two { grid-template-columns: 1fr; }
+    @media (max-width: 640px) {
+      .gap-row { grid-template-columns: 1fr; }
     }
 
-    .compare-card {
+    .gap-card {
+      padding: var(--space-4);
       border-radius: var(--radius-lg);
-      padding: var(--space-lg);
-      border: 1px solid var(--border-dark);
+      border: 1px solid var(--border);
+      background: var(--surface-card);
     }
 
-    .compare-card--high {
-      background: linear-gradient(160deg, #292524, #1c1917);
+    .gap-card--win {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(217, 119, 6, 0.2);
     }
 
-    .compare-card--low {
-      background: var(--bg-dark-elevated);
-      border-style: dashed;
-      opacity: 0.95;
-    }
-
-    .compare-card .score {
-      font-family: var(--font-serif);
-      font-size: 3.5rem;
+    .gap-card .big {
+      font-family: var(--font-display);
+      font-size: 3rem;
       line-height: 1;
-      margin-bottom: 12px;
-    }
-
-    .compare-card--high .score { color: #fbbf24; }
-    .compare-card--low .score { color: var(--text-muted-light); }
-
-    .compare-card h3 {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
       margin-bottom: 8px;
-      font-weight: 400;
     }
 
-    .compare-card p {
-      font-size: 0.9375rem;
-      color: var(--text-on-dark-muted);
-      line-height: 1.55;
-    }
+    .gap-card--win .big { color: var(--accent); }
+    .gap-card:not(.gap-card--win) .big { color: var(--border); }
 
-    .quote-band {
-      margin-top: var(--space-lg);
-      padding: var(--space-lg);
+    .gap-card h3 { font-size: 1.25rem; margin-bottom: 8px; }
+    .gap-card p { font-size: 0.9375rem; color: var(--text-muted); }
+
+    .quote {
+      margin-top: var(--space-4);
+      padding: var(--space-4);
       text-align: center;
+      background: var(--surface-card);
       border-radius: var(--radius-lg);
-      background: rgba(217, 119, 6, 0.12);
-      border: 1px solid rgba(217, 119, 6, 0.25);
+      border: 1px dashed var(--border);
     }
 
-    .quote-band p {
-      font-family: var(--font-serif);
-      font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+    .quote p {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
       font-style: italic;
-      color: var(--text-on-dark);
-      line-height: 1.45;
-      max-width: 36rem;
+      color: var(--primary);
+      max-width: 32rem;
       margin: 0 auto;
+      line-height: 1.45;
     }
 
-    /* ——— Feature list (fixed layout) ——— */
-    .feature-stack {
+    /* —— Features —— */
+    .features {
       display: flex;
       flex-direction: column;
-      gap: var(--space-sm);
-      margin-top: var(--space-lg);
+      gap: var(--space-2);
+      margin-top: var(--space-4);
     }
 
-    .feature-row {
+    .feature {
       display: flex;
+      gap: var(--space-3);
       align-items: flex-start;
-      gap: var(--space-md);
-      padding: var(--space-3) var(--space-4);
-      background: var(--surface-elevated);
+      padding: var(--space-3);
+      background: var(--surface-card);
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
-      box-shadow: var(--shadow-sm);
-      transition: box-shadow var(--duration) var(--ease-out), transform var(--duration) var(--ease-out), border-color var(--duration) var(--ease-out);
+      transition: box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease);
     }
 
     @media (prefers-reduced-motion: no-preference) {
-      .feature-row:hover {
-        box-shadow: var(--shadow-md);
-        transform: translateY(-2px);
-        border-color: var(--border-strong);
+      .feature:hover {
+        box-shadow: var(--shadow);
+        border-color: color-mix(in srgb, var(--primary) 25%, var(--border));
       }
     }
 
-    .feature-row:focus-within {
-      box-shadow: var(--ring);
+    .feature--highlight {
+      background: var(--primary);
+      border-color: transparent;
+      color: var(--text-on-primary);
     }
 
-    .feature-row--dark {
-      background: var(--brand-30);
-      border-color: var(--dark-border);
-      color: var(--dark-text);
-    }
-
-    .feature-row--dark p { color: var(--text-on-dark-muted); }
-    .feature-row--dark .feature-title { color: #fbbf24; }
-
-    @media (max-width: 600px) {
-      .feature-row {
-        flex-direction: column;
-        gap: 8px;
-      }
-    }
+    .feature--highlight p { color: rgba(249, 247, 245, 0.8); }
+    .feature--highlight .feature-title { color: #fcd34d; }
 
     .feature-icon {
       flex-shrink: 0;
       width: 44px;
       height: 44px;
-      border-radius: 12px;
-      background: var(--accent-pale);
+      border-radius: var(--radius-sm);
+      background: var(--secondary);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.25rem;
+      font-size: 1.125rem;
     }
 
-    .feature-row--dark .feature-icon {
-      background: rgba(251, 191, 36, 0.15);
+    .feature--highlight .feature-icon {
+      background: rgba(255, 255, 255, 0.12);
     }
 
-    .feature-body {
-      flex: 1;
-      min-width: 0;
-    }
+    .feature-body { flex: 1; min-width: 0; }
 
     .feature-title {
-      font-family: var(--font-serif);
-      font-size: 1.25rem;
-      font-weight: 400;
+      font-family: var(--font-display);
+      font-size: 1.125rem;
       margin-bottom: 6px;
-      color: var(--text-dark);
-      letter-spacing: -0.01em;
+      color: var(--primary-dark);
     }
 
     .feature-body p {
       font-size: 0.9375rem;
       color: var(--text-muted);
-      line-height: 1.55;
       margin: 0;
     }
 
-    /* ——— Pillars ——— */
+    /* —— Pillars —— */
     .pillar-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-md);
-      margin-top: var(--space-lg);
+      gap: var(--space-3);
+      margin-top: var(--space-4);
     }
 
     @media (max-width: 800px) {
@@ -722,34 +527,33 @@
     }
 
     .pillar {
-      padding: var(--space-md);
+      padding: var(--space-3);
       border-radius: var(--radius-md);
-      border: 1px solid var(--border-dark);
-      background: var(--bg-dark-elevated);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .pillar h4 {
       font-size: 0.9375rem;
       font-weight: 600;
       margin-bottom: 8px;
-      color: var(--text-on-dark);
     }
 
     .pillar p {
       font-size: 0.875rem;
-      color: var(--text-on-dark-muted);
+      opacity: 0.8;
       line-height: 1.5;
       margin: 0;
     }
 
-    /* ——— Table ——— */
-    .table-wrap {
-      margin-top: var(--space-lg);
+    /* —— Table —— */
+    .table-card {
+      margin-top: var(--space-4);
       border-radius: var(--radius-lg);
       overflow: hidden;
       border: 1px solid var(--border);
-      background: var(--bg-white);
-      box-shadow: var(--shadow-md);
+      background: var(--surface-card);
+      box-shadow: var(--shadow);
     }
 
     table.data {
@@ -760,162 +564,153 @@
 
     table.data th,
     table.data td {
-      padding: 18px 22px;
+      padding: 16px 20px;
       text-align: left;
-      vertical-align: top;
       border-bottom: 1px solid var(--border);
+      vertical-align: top;
     }
 
     table.data th {
-      background: #fafaf9;
+      background: var(--secondary);
       font-size: 0.6875rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--text-muted);
+      color: var(--primary);
     }
 
     table.data tr:last-child td { border-bottom: none; }
 
-    table.data .muted { color: var(--text-muted); text-decoration: line-through; }
-
-    table.data tr.highlight {
-      background: linear-gradient(90deg, var(--accent-pale), #fff);
+    table.data .strike {
+      color: var(--text-muted);
+      text-decoration: line-through;
     }
 
-    table.data tr.highlight td:last-child {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      font-weight: 400;
+    table.data tr.pick {
+      background: linear-gradient(90deg, rgba(217, 119, 6, 0.08), transparent);
+    }
+
+    table.data tr.pick td:last-child {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
       color: var(--accent);
-    }
-
-    /* ——— Pricing layout ——— */
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: 340px 1fr;
-      gap: var(--space-lg);
-      margin-top: var(--space-lg);
-      align-items: start;
-    }
-
-    @media (max-width: 900px) {
-      .pricing-grid { grid-template-columns: 1fr; }
-    }
-
-    .pricing-card {
-      position: sticky;
-      top: 88px;
-      padding: var(--space-lg);
-      border-radius: var(--radius-lg);
-      background: var(--text-dark);
-      color: var(--text-on-dark);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .pricing-card .label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-on-dark-muted);
-      margin-bottom: 8px;
-    }
-
-    .pricing-card .big {
-      font-family: var(--font-serif);
-      font-size: 3.25rem;
-      line-height: 1;
-      color: #fbbf24;
-      margin-bottom: var(--space-md);
-    }
-
-    .pricing-card .note {
-      font-size: 0.875rem;
-      color: var(--text-on-dark-muted);
-      line-height: 1.55;
-      margin-bottom: var(--space-md);
-    }
-
-    .pricing-card .save {
-      padding-top: var(--space-md);
-      border-top: 1px solid var(--border-dark);
-      font-size: 0.875rem;
-      color: var(--text-on-dark-muted);
-    }
-
-    .pricing-card .save strong { color: #fbbf24; }
-
-    .line-items {
-      list-style: none;
-      background: var(--bg-white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-    }
-
-    .line-items li {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 8px 24px;
-      padding: 18px 22px;
-      border-bottom: 1px solid var(--border);
-      align-items: start;
-    }
-
-    .line-items li:last-child {
-      border-bottom: none;
-      background: #fafaf9;
       font-weight: 600;
     }
 
-    .line-items .item-title {
-      font-size: 0.9375rem;
-      font-weight: 500;
-      color: var(--text-dark);
+    /* —— Pricing —— */
+    .pricing {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+      align-items: start;
     }
 
-    .line-items .item-desc {
+    @media (max-width: 880px) {
+      .pricing { grid-template-columns: 1fr; }
+    }
+
+    .pricing-sticky {
+      position: sticky;
+      top: 88px;
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+      background: var(--primary);
+      color: var(--text-on-primary);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .pricing-sticky .label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      opacity: 0.7;
+    }
+
+    .pricing-sticky .big {
+      font-family: var(--font-display);
+      font-size: 2.75rem;
+      color: #fcd34d;
+      margin: 8px 0 var(--space-3);
+      line-height: 1;
+    }
+
+    .pricing-sticky .note {
+      font-size: 0.875rem;
+      opacity: 0.85;
+      line-height: 1.55;
+    }
+
+    .pricing-sticky .save {
+      margin-top: var(--space-3);
+      padding-top: var(--space-3);
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      font-size: 0.875rem;
+      opacity: 0.9;
+    }
+
+    .lines {
+      list-style: none;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--surface-card);
+    }
+
+    .lines li {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px 20px;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .lines li:last-child {
+      border-bottom: none;
+      background: var(--secondary);
+      font-weight: 600;
+    }
+
+    .lines .d {
       grid-column: 1 / -1;
       font-size: 0.8125rem;
       color: var(--text-muted);
       margin-top: -4px;
     }
 
-    .line-items .item-amt {
-      font-family: var(--font-serif);
+    .lines .amt {
+      font-family: var(--font-display);
       font-size: 1.125rem;
       color: var(--accent);
       white-space: nowrap;
     }
 
-    .line-items li:last-child .item-amt {
+    .lines li:last-child .amt {
       font-size: 1.375rem;
-      color: var(--text-dark);
+      color: var(--primary-dark);
     }
 
     .terms {
-      margin-top: var(--space-md);
+      margin-top: var(--space-2);
       font-size: 0.8125rem;
       color: var(--text-muted);
     }
 
-    /* ——— Checklist ——— */
-    .check-grid {
+    /* —— Checklists —— */
+    .checks-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: var(--space-lg);
-      margin-top: var(--space-lg);
+      gap: var(--space-4);
+      margin-top: var(--space-4);
     }
 
-    @media (max-width: 700px) {
-      .check-grid { grid-template-columns: 1fr; }
+    @media (max-width: 640px) {
+      .checks-grid { grid-template-columns: 1fr; }
     }
 
-    .check-col h3 {
-      font-family: var(--font-serif);
-      font-size: 1.375rem;
-      margin-bottom: var(--space-md);
-      font-weight: 400;
+    .checks-grid h3 {
+      font-size: 1.25rem;
+      margin-bottom: var(--space-2);
     }
 
     ul.checks {
@@ -923,8 +718,8 @@
     }
 
     ul.checks li {
-      position: relative;
       padding: 10px 0 10px 28px;
+      position: relative;
       font-size: 0.9375rem;
       color: var(--text-muted);
       border-bottom: 1px solid var(--border);
@@ -938,28 +733,27 @@
       width: 10px;
       height: 10px;
       border-radius: 3px;
-      background: var(--accent-soft);
+      background: var(--accent);
     }
 
-    .callout-muted {
-      margin-top: var(--space-lg);
-      padding: var(--space-md) var(--space-lg);
+    .note-box {
+      margin-top: var(--space-4);
+      padding: var(--space-3);
       border-radius: var(--radius-md);
-      background: #fafaf9;
-      border: 1px dashed var(--border);
+      background: var(--secondary);
       font-size: 0.875rem;
       color: var(--text-muted);
       line-height: 1.55;
     }
 
-    .callout-muted strong { color: var(--text-dark); }
+    .note-box strong { color: var(--primary-dark); }
 
-    /* ——— Timeline ——— */
+    /* —— Steps —— */
     .steps {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: var(--space-md);
-      margin-top: var(--space-lg);
+      gap: var(--space-2);
+      margin-top: var(--space-4);
     }
 
     @media (max-width: 800px) {
@@ -971,107 +765,86 @@
     }
 
     .step {
-      padding: var(--space-md);
+      padding: var(--space-3);
       border-radius: var(--radius-md);
-      background: var(--bg-dark-elevated);
-      border: 1px solid var(--border-dark);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
     }
 
-    .step .num {
+    .step .w {
       font-size: 0.6875rem;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--accent-soft);
+      color: #fcd34d;
       margin-bottom: 8px;
     }
 
-    .step h4 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text-on-dark);
-      margin-bottom: 6px;
-    }
+    .step h4 { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
+    .step p { font-size: 0.8125rem; opacity: 0.8; margin: 0; }
 
-    .step p {
-      font-size: 0.8125rem;
-      color: var(--text-on-dark-muted);
-      margin: 0;
-      line-height: 1.5;
-    }
-
-    /* ——— Finale ——— */
+    /* —— Finale —— */
     .finale {
       text-align: center;
-      padding: var(--space-2xl) 24px;
-      background: linear-gradient(180deg, var(--bg-light), #efe9e0);
-      border-top: 1px solid var(--border);
+      padding: var(--space-7) var(--space-3);
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 100%, var(--secondary), transparent),
+        var(--surface);
     }
 
-    .finale .display { max-width: 20ch; margin-left: auto; margin-right: auto; }
-
+    .finale .display { max-width: 18ch; margin-left: auto; margin-right: auto; }
     .finale .lead { margin-left: auto; margin-right: auto; text-align: center; }
 
-    .finale-cta {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-md);
-      margin-top: var(--space-lg);
-    }
-
-    .finale-cta .big-price {
-      font-family: var(--font-serif);
-      font-size: 2.75rem;
+    .finale-price {
+      font-family: var(--font-display);
+      font-size: 2.25rem;
       color: var(--accent);
+      margin: var(--space-3) 0;
     }
 
-    .finale-pills {
+    .pills {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 10px;
+      margin-top: var(--space-3);
     }
 
-    .finale-pills span {
+    .pills span {
       font-size: 0.8125rem;
       font-weight: 500;
       padding: 10px 16px;
-      border-radius: 100px;
-      background: var(--bg-white);
+      border-radius: var(--radius-pill);
+      background: var(--surface-card);
       border: 1px solid var(--border);
       color: var(--text-muted);
     }
 
-    footer.site-footer {
+    footer {
       text-align: center;
-      padding: var(--space-lg) 24px;
+      padding: var(--space-4) var(--space-3);
       font-size: 0.75rem;
       color: var(--text-muted);
-      background: var(--bg-white);
       border-top: 1px solid var(--border);
+      background: var(--surface-card);
     }
 
-    /* Reveal */
     .reveal {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transform: translateY(16px);
+      transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
     }
 
-    .reveal.is-visible {
-      opacity: 1;
-      transform: none;
-    }
+    .reveal.on { opacity: 1; transform: none; }
 
     @media (prefers-reduced-motion: reduce) {
       .reveal { opacity: 1; transform: none; transition: none; }
-      .feature-row:hover { transform: none; }
+      .feature:hover { box-shadow: none; }
     }
 
     @media print {
       .topbar { position: static; }
-      .pricing-card { position: static; }
+      .pricing-sticky { position: static; }
       .reveal { opacity: 1; transform: none; }
     }
   </style>
@@ -1080,8 +853,8 @@
   <a class="skip" href="#main">Skip to content</a>
 
   <header class="topbar">
-    <div class="topbar-inner" style="position:relative">
-      <div class="brand">Thelliyankal · Proposal</div>
+    <div class="topbar-inner">
+      <div class="logo">Thelliyankal <span>· Proposal</span></div>
       <nav id="site-nav" aria-label="Sections">
         <a class="nav-link" href="#vision">Vision</a>
         <a class="nav-link" href="#investment">Investment</a>
@@ -1090,8 +863,7 @@
         <a class="nav-link" href="#next">Next steps</a>
       </nav>
       <div class="topbar-actions">
-        <button type="button" class="btn btn-ghost btn-icon menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">☰</button>
-        <button type="button" class="btn btn-ghost btn-icon" id="theme-toggle" aria-label="Toggle dark mode">◐</button>
+        <button type="button" class="btn btn-ghost btn-icon menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">☰</button>
         <span class="chip">Confidential</span>
       </div>
     </div>
@@ -1100,333 +872,310 @@
   <main id="main">
 
     <section class="hero">
-      <div class="hero-grid">
-        <div class="hero-copy reveal">
-          <div class="badge-row">
-            <span class="dot" aria-hidden="true"></span>
-            <span>Christmas 2026 · Grand Reserve</span>
-          </div>
-          <h1 class="display">
-            The website your cake<br />already deserves.
-          </h1>
-          <p class="lead">
-            I am building you the <strong>best online home</strong> for Kerala’s most distinctive plum cake — a storefront that feels as premium as the bottle on your shelf, plus a calm <strong>business panel</strong> so you run orders without app chaos. Built for <strong>10,000–15,000 visitors</strong> when your campaign hits.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#next">Start the build — ₹1.5L</a>
-            <div class="price-pill">
-              <span class="amount">₹1,50,000</span>
-              <span class="meta">one-time · all core integrations</span>
+      <div class="container">
+        <div class="hero-grid reveal">
+          <div>
+            <div class="hero-badge">Christmas 2026 · Grand Reserve</div>
+            <h1 class="display">The website your cake already deserves.</h1>
+            <p class="lead">
+              I am building the <strong>best online home</strong> for Kerala’s most distinctive plum cake — warm, premium, and unmistakably yours. A storefront that matches the bottle on your shelf, plus a calm <strong>business panel</strong> for orders without app chaos. Ready for <strong>10,000–15,000 visitors</strong> when your campaign lands.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#next">Start the build — ₹1.5L</a>
+              <div class="price-tag">
+                <span class="num">₹1,50,000</span>
+                <span class="meta">one-time build</span>
+              </div>
             </div>
           </div>
+          <aside class="hero-card" aria-label="Proof points">
+            <div class="hero-card-inner">
+              <h2>You’ve already won the product war.</h2>
+              <div class="stats">
+                <div class="stat">
+                  <div class="v">1,000+</div>
+                  <div class="l">Amazon reviews</div>
+                </div>
+                <div class="stat">
+                  <div class="v">45</div>
+                  <div class="l">Years legacy</div>
+                </div>
+                <div class="stat">
+                  <div class="v">15k</div>
+                  <div class="l">Visitors planned</div>
+                </div>
+              </div>
+            </div>
+          </aside>
         </div>
-
-        <aside class="hero-visual reveal" aria-label="Key metrics">
-          <div class="hero-visual-content">
-            <h2>Proof you’ve already won the product war.</h2>
-            <div class="stat-row">
-              <div class="stat">
-                <div class="value">1,000+</div>
-                <div class="label">Amazon reviews</div>
-              </div>
-              <div class="stat">
-                <div class="value">45</div>
-                <div class="label">Years of legacy</div>
-              </div>
-              <div class="stat">
-                <div class="value">15k</div>
-                <div class="label">Visitors planned for</div>
-              </div>
-            </div>
-          </div>
-        </aside>
       </div>
     </section>
 
-    <section class="section section--dark">
+    <section class="section section--warm">
       <div class="container reveal">
-        <p class="section-kicker">The gap</p>
-        <h2 class="title">Your product stops people.<br />Your doorway lets them leave.</h2>
+        <p class="kicker">The gap</p>
+        <h2 class="title">Your product stops people. Your doorway lets them leave.</h2>
         <p class="lead">
-          The box gets filmed. Amazon gets the stars. Then the website feels generic — and trust leaks before Razorpay. This project closes that gap so the <em>first click</em> feels as intentional as the <em>first slice</em>.
+          The box gets filmed. Amazon gets the stars. Then the site feels generic — and trust leaks before checkout. We close that gap so the <em>first click</em> feels as warm and intentional as the <em>first slice</em>.
         </p>
-
-        <div class="compare-two">
-          <article class="compare-card compare-card--high">
-            <div class="score">10</div>
+        <div class="gap-row">
+          <article class="gap-card gap-card--win">
+            <div class="big">10</div>
             <h3>Grand Reserve</h3>
-            <p>Packaging, story, flavour — a gift people remember and reorder every December.</p>
+            <p>Packaging, story, flavour — a gift people reorder every December.</p>
           </article>
-          <article class="compare-card compare-card--low">
-            <div class="score">—</div>
+          <article class="gap-card">
+            <div class="big">—</div>
             <h3>Today’s digital shelf</h3>
-            <p>Template feel, shipping scars, channels that don’t match the price on the box.</p>
+            <p>Template feel, shipping scars, channels that don’t match the box.</p>
           </article>
         </div>
-
-        <div class="quote-band">
-          <p>“I’m not selling you Shopify. I’m selling you ownership — brand, data, and one place to run Christmas.”</p>
+        <div class="quote">
+          <p>“I’m not selling Shopify. I’m selling ownership — your brand, your data, one place to run Christmas.”</p>
         </div>
       </div>
     </section>
 
-    <section class="section section--light" id="vision">
+    <section class="section" id="vision">
       <div class="container reveal">
-        <p class="section-kicker">The vision</p>
+        <p class="kicker">The vision</p>
         <h2 class="title">A custom platform — not a rented shelf</h2>
         <p class="lead">
-          Shopify answered “sell online.” You need <strong>sell this legend, this season, without chaos</strong>. Everything below is engineered as one system — no broken grids, no ten apps — just clarity.
+          Shopify answered “sell online.” You need <strong>sell this legend, this season, without chaos</strong> — one calm system, built for Grand Reserve.
         </p>
-
-        <div class="feature-stack">
-          <article class="feature-row feature-row--dark">
-            <div class="feature-icon" aria-hidden="true">✦</div>
+        <div class="features">
+          <article class="feature feature--highlight">
+            <div class="feature-icon" aria-hidden="true">☕</div>
             <div class="feature-body">
               <h3 class="feature-title">Storefront that sells the story</h3>
-              <p>Mobile-first, fast, festive — one hero SKU so every screen supports Grand Reserve, not a catalogue you don’t need.</p>
+              <p>Mobile-first, festive, single-SKU focus — every screen supports the cake, not a catalogue you don’t need.</p>
             </div>
           </article>
-
-          <article class="feature-row">
+          <article class="feature">
             <div class="feature-icon" aria-hidden="true">◆</div>
             <div class="feature-body">
               <h3 class="feature-title">Your data, in your hands</h3>
-              <p>Customers and orders live in your database. Export anytime. No platform lock-in when you grow next year.</p>
+              <p>Customers and orders in your database. Export anytime. No platform lock-in.</p>
             </div>
           </article>
-
-          <article class="feature-row">
+          <article class="feature">
             <div class="feature-icon" aria-hidden="true">◆</div>
             <div class="feature-body">
               <h3 class="feature-title">Operations that breathe</h3>
-              <p>One admin: paid orders, shipping steps, pause when the kitchen is full — built for how December actually feels.</p>
+              <p>One admin: orders, shipping, pause when the kitchen is full — built for real December weeks.</p>
             </div>
           </article>
-
-          <article class="feature-row">
+          <article class="feature">
             <div class="feature-icon" aria-hidden="true">◆</div>
             <div class="feature-body">
               <h3 class="feature-title">India-ready rails</h3>
-              <p>Razorpay, Shiprocket, pincode discipline — the same stack serious D2C brands use, wired correctly from day one.</p>
+              <p>Razorpay, Shiprocket, pincode discipline — wired correctly from day one.</p>
             </div>
           </article>
-
-          <article class="feature-row">
+          <article class="feature">
             <div class="feature-icon" aria-hidden="true">◆</div>
             <div class="feature-body">
               <h3 class="feature-title">Why we’re leaving Shopify</h3>
-              <p>You felt Delhivery friction and weak design while paying monthly rent. Custom puts luxury feel and shipping logic <em>inside</em> the product — not from the app store.</p>
+              <p>Delhivery friction and weak design while paying rent — luxury and shipping logic belong <em>inside</em> your product.</p>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section section--dark">
+    <section class="section section--coffee">
       <div class="container reveal">
-        <p class="section-kicker">Reliability</p>
-        <h2 class="title">Foolproof means a system,<br />not a miracle</h2>
-        <p class="lead">Proven partners, a daily rhythm your staff can learn once, and a kill switch when demand beats capacity.</p>
-
+        <p class="kicker">Reliability</p>
+        <h2 class="title">Foolproof means a system, not a miracle</h2>
+        <p class="lead">Proven partners, a daily rhythm your team learns once, and a kill switch when demand beats the oven.</p>
         <div class="pillar-grid">
           <div class="pillar">
             <h4>Payments you trust</h4>
-            <p>Razorpay hosted checkout — UPI, cards, netbanking. Settlement to your bank; we never touch card data.</p>
+            <p>Razorpay hosted checkout — UPI, cards, netbanking. Settlement to your bank.</p>
           </div>
           <div class="pillar">
             <h4>Shipping you control</h4>
-            <p>Shiprocket multi-carrier + pincode check before pay — fewer wrong-city nightmares.</p>
+            <p>Shiprocket + pincode check before pay — fewer wrong-city nightmares.</p>
           </div>
           <div class="pillar">
             <h4>Tested before launch</h4>
-            <p>Real Kerala pincodes, webhook drills, load suited to 15k visitors — especially peak week.</p>
+            <p>Real Kerala pincodes, webhooks, load for 15k visitors.</p>
           </div>
           <div class="pillar">
             <h4>Daily SOP</h4>
-            <p>Admin → confirm → label → ship → customer notified. Repeatable every morning.</p>
+            <p>Admin → confirm → label → ship → customer notified.</p>
           </div>
           <div class="pillar">
             <h4>Pause orders</h4>
-            <p>One toggle when you’re at capacity — no developer on speed dial.</p>
+            <p>One toggle at capacity — no developer on call.</p>
           </div>
           <div class="pillar">
             <h4>Handover</h4>
-            <p>Live training + peak-week playbook so you’re never guessing.</p>
+            <p>Training + peak-week playbook included.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section section--light" id="investment">
+    <section class="section section--warm" id="investment">
       <div class="container reveal">
-        <p class="section-kicker">Investment</p>
+        <p class="kicker">Investment</p>
         <h2 class="title">What the market charges — and what you pay</h2>
         <p class="lead">
-          Agencies bill ₹4–12L+ for comparable custom work. This is scoped to <strong>one product, one season, one outcome</strong> — priced at <strong>₹1,50,000</strong> so you reinvest the rest in cakes, ads, and packaging.
+          Agencies quote ₹4–12L+ for comparable work. This is scoped to <strong>one product, one season</strong> — <strong>₹1,50,000</strong> so you reinvest in cakes, ads, and packaging.
         </p>
-
-        <div class="table-wrap">
+        <div class="table-card">
           <table class="data">
             <thead>
               <tr>
                 <th>Approach</th>
                 <th>Market rate (India)</th>
-                <th>Your fit</th>
+                <th>Fit</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Top agency · full custom ecommerce</td>
-                <td class="muted">₹8,00,000 – ₹25,00,000+</td>
-                <td>Overkill & slow</td>
+                <td>Top agency · full custom</td>
+                <td class="strike">₹8L – ₹25L+</td>
+                <td>Overkill</td>
               </tr>
               <tr>
                 <td>Mid agency · storefront + admin</td>
-                <td class="muted">₹4,50,000 – ₹12,00,000</td>
-                <td>Strong but heavy retainers</td>
+                <td class="strike">₹4.5L – ₹12L</td>
+                <td>Heavy retainers</td>
               </tr>
               <tr>
                 <td>Generic freelancer site</td>
-                <td class="muted">₹2,00,000 – ₹4,50,000</td>
-                <td>Often no real ops layer</td>
+                <td class="strike">₹2L – ₹4.5L</td>
+                <td>Weak ops layer</td>
               </tr>
               <tr>
-                <td>Shopify + apps (2–3 years)</td>
-                <td class="muted">₹2,00,000 – ₹5,00,000+</td>
-                <td>You still rent the store</td>
+                <td>Shopify + apps (2–3 yr)</td>
+                <td class="strike">₹2L – ₹5L+</td>
+                <td>You still rent</td>
               </tr>
-              <tr class="highlight">
+              <tr class="pick">
                 <td><strong>This build · Grand Reserve platform</strong></td>
-                <td>Comparable value <strong>₹4,00,000 – ₹6,50,000</strong></td>
+                <td>Value <strong>₹4L – ₹6.5L</strong></td>
                 <td>₹1,50,000</td>
               </tr>
             </tbody>
           </table>
         </div>
-
-        <div class="pricing-grid">
-          <aside class="pricing-card">
-            <p class="label">One-time build fee</p>
+        <div class="pricing">
+          <aside class="pricing-sticky">
+            <p class="label">One-time build</p>
             <p class="big">₹1,50,000</p>
             <p class="note">
-              Includes everything in scope. No hidden phases inside this number.<br /><br />
-              <strong>Not included:</strong> hosting, Razorpay %, courier per shipment, WhatsApp tools, ads — paid directly to providers.
+              Full scope below. Hosting, Razorpay %, couriers, WhatsApp tools, and ads are <strong>separate</strong> — paid directly to providers.
             </p>
-            <p class="save">
-              vs. typical <strong>₹4–6.5L</strong> market quote,<br />
-              you keep roughly <strong>₹2.5–5L+</strong> in your pocket.
-            </p>
+            <p class="save">vs. typical <strong>₹4–6.5L</strong> quotes — you keep roughly <strong>₹2.5–5L+</strong>.</p>
           </aside>
-
           <div>
-            <h3 style="font-family:var(--font-serif); font-size:1.5rem; font-weight:400; margin-bottom:8px;">Where every rupee goes</h3>
-            <p style="font-size:0.875rem; color:var(--text-muted); margin-bottom:20px;">Professional services breakdown</p>
-            <ul class="line-items">
+            <h3 class="title" style="font-size:1.375rem; margin-bottom:8px;">Where every rupee goes</h3>
+            <ul class="lines">
               <li>
-                <span class="item-title">Discovery, positioning & zone strategy</span>
-                <span class="item-amt">₹15,000</span>
-                <span class="item-desc">Story, pincode rules, Amazon vs D2C pricing, Shopify migration plan</span>
+                <span>Discovery & zone strategy</span>
+                <span class="amt">₹15,000</span>
+                <span class="d">Story, pincode rules, Amazon vs D2C, Shopify migration</span>
               </li>
               <li>
-                <span class="item-title">UX & visual design</span>
-                <span class="item-amt">₹28,000</span>
-                <span class="item-desc">Premium storefront + admin — mobile-first Christmas funnel</span>
+                <span>UX & visual design</span>
+                <span class="amt">₹28,000</span>
+                <span class="d">Storefront + admin, mobile-first Christmas funnel</span>
               </li>
               <li>
-                <span class="item-title">Customer website development</span>
-                <span class="item-amt">₹38,000</span>
-                <span class="item-desc">Home, PDP, festive LP, policies, corporate enquiry, SEO base</span>
+                <span>Customer website</span>
+                <span class="amt">₹38,000</span>
+                <span class="d">Home, PDP, festive LP, policies, corporate enquiry, SEO</span>
               </li>
               <li>
-                <span class="item-title">Business admin panel</span>
-                <span class="item-amt">₹42,000</span>
-                <span class="item-desc">Orders, customers, exports, pause orders, leads, settings</span>
+                <span>Business admin panel</span>
+                <span class="amt">₹42,000</span>
+                <span class="d">Orders, customers, exports, pause orders, leads</span>
               </li>
               <li>
-                <span class="item-title">Integrations</span>
-                <span class="item-amt">₹22,000</span>
-                <span class="item-desc">Razorpay webhooks, Shiprocket workflow, transactional email</span>
+                <span>Integrations</span>
+                <span class="amt">₹22,000</span>
+                <span class="d">Razorpay, Shiprocket, transactional email</span>
               </li>
               <li>
-                <span class="item-title">QA, deploy, training</span>
-                <span class="item-amt">₹15,000</span>
-                <span class="item-desc">Payment & pincode tests, go-live, handover session</span>
+                <span>QA, deploy, training</span>
+                <span class="amt">₹15,000</span>
+                <span class="d">Payment & pincode tests, go-live, handover</span>
               </li>
               <li>
-                <span class="item-title">Total</span>
-                <span class="item-amt">₹1,50,000</span>
+                <span>Total</span>
+                <span class="amt">₹1,50,000</span>
               </li>
             </ul>
-            <p class="terms">Payment: <strong>40%</strong> on agreement · <strong>40%</strong> on staging demo · <strong>20%</strong> on go-live.</p>
+            <p class="terms">Payment: <strong>40%</strong> agreement · <strong>40%</strong> staging demo · <strong>20%</strong> go-live.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section section--light" id="scope">
+    <section class="section" id="scope">
       <div class="container reveal">
-        <p class="section-kicker">Deliverables</p>
+        <p class="kicker">Deliverables</p>
         <h2 class="title">Exactly what ₹1.5 lakh delivers</h2>
-
-        <div class="check-grid">
-          <div class="check-col">
+        <div class="checks-grid">
+          <div>
             <h3>Public experience</h3>
             <ul class="checks">
-              <li>Branded, fast mobile storefront</li>
+              <li>Branded mobile storefront</li>
               <li>Grand Reserve story page</li>
               <li>Christmas campaign landing</li>
-              <li>Pincode / zone check before checkout</li>
-              <li>Razorpay cart & checkout</li>
-              <li>Corporate & bulk enquiry</li>
+              <li>Pincode check before checkout</li>
+              <li>Razorpay checkout</li>
+              <li>Corporate enquiry</li>
               <li>SEO-ready structure</li>
             </ul>
           </div>
-          <div class="check-col">
+          <div>
             <h3>Your command centre</h3>
             <ul class="checks">
               <li>Secure staff login</li>
               <li>Order dashboard & alerts</li>
-              <li>Status workflow through delivery</li>
-              <li>Customer history & CSV export</li>
-              <li>Pause new orders toggle</li>
+              <li>Status through delivery</li>
+              <li>Customer export (CSV)</li>
+              <li>Pause orders toggle</li>
               <li>Corporate lead tracking</li>
-              <li>Shopify export migration support</li>
+              <li>Shopify migration support</li>
             </ul>
           </div>
         </div>
-
-        <div class="callout-muted">
-          <strong>Additional (not in ₹1.5L):</strong> hosting (~₹500–₹2,000/mo), Razorpay fees (~2% + GST), Shiprocket per shipment, domain, WhatsApp automation (Interakt), photography, paid ads, optional monthly maintenance after handover.
+        <div class="note-box">
+          <strong>Additional (not in ₹1.5L):</strong> hosting, Razorpay fees, Shiprocket per shipment, domain, WhatsApp (Interakt), photography, ads, optional maintenance.
         </div>
       </div>
     </section>
 
-    <section class="section section--dark" id="timeline">
+    <section class="section section--coffee section--tight" id="timeline">
       <div class="container reveal">
-        <p class="section-kicker">Timeline</p>
+        <p class="kicker">Timeline</p>
         <h2 class="title">Six weeks to launch-ready</h2>
-        <p class="lead">Assuming fast feedback and Razorpay / Shiprocket accounts opened in week one.</p>
-
+        <p class="lead">Fast feedback + Razorpay / Shiprocket opened in week one.</p>
         <div class="steps">
           <div class="step">
-            <p class="num">Week 1</p>
+            <p class="w">Week 1</p>
             <h4>Kickoff</h4>
-            <p>Zones, pricing, exports, payment & courier accounts.</p>
+            <p>Zones, pricing, exports, accounts.</p>
           </div>
           <div class="step">
-            <p class="num">Week 2–3</p>
+            <p class="w">Week 2–3</p>
             <h4>Storefront</h4>
-            <p>Design + build — the experience worth your product.</p>
+            <p>Design + build worth your product.</p>
           </div>
           <div class="step">
-            <p class="num">Week 4–5</p>
-            <h4>Admin & wiring</h4>
-            <p>Orders, webhooks, shipping — tested hard.</p>
+            <p class="w">Week 4–5</p>
+            <h4>Admin</h4>
+            <p>Orders, webhooks, shipping tests.</p>
           </div>
           <div class="step">
-            <p class="num">Week 6</p>
+            <p class="w">Week 6</p>
             <h4>Go live</h4>
-            <p>Domain, training, playbook in your hands.</p>
+            <p>Domain, training, playbook.</p>
           </div>
         </div>
       </div>
@@ -1434,49 +1183,31 @@
 
     <section class="finale" id="next">
       <div class="container reveal">
-        <p class="section-kicker">The ask</p>
+        <p class="kicker">The ask</p>
         <h2 class="display">Give Grand Reserve the entrance it deserves.</h2>
         <p class="lead">
-          You’re not buying pages. You’re buying the best online expression of a product you already proved — for a fraction of what the market normally charges.
+          You’re not buying pages — you’re buying the best online expression of a product you already proved, for a fraction of market cost.
         </p>
-        <div class="finale-cta">
-          <span class="big-price">₹1,50,000 · one-time build</span>
-          <a class="btn btn-primary" href="mailto:you@example.com?subject=Thelliyankal%20Grand%20Reserve%20Platform">Reply to approve →</a>
-          <div class="finale-pills" role="list">
-            <span role="listitem">Align & sign</span>
-            <span role="listitem">Open Razorpay + Shiprocket</span>
-            <span role="listitem">Build & review</span>
-            <span role="listitem">Launch Christmas-ready</span>
-          </div>
+        <p class="finale-price">₹1,50,000 · one-time build</p>
+        <a class="btn btn-primary" href="mailto:you@example.com?subject=Thelliyankal%20Grand%20Reserve%20Platform">Reply to approve →</a>
+        <div class="pills" role="list">
+          <span role="listitem">Align & sign</span>
+          <span role="listitem">Razorpay + Shiprocket</span>
+          <span role="listitem">Build & review</span>
+          <span role="listitem">Launch Christmas-ready</span>
         </div>
       </div>
     </section>
 
   </main>
 
-  <footer class="site-footer">
-    <p>Confidential · Thelliyankal Bakers · Custom platform proposal · Build fee ₹1,50,000 (INR)</p>
-    <p style="margin-top:8px;">Prepared by <!-- Your name --> · <!-- email / phone --> · September 2026</p>
+  <footer>
+    <p>Confidential · Thelliyankal Bakers · Custom platform · Build fee ₹1,50,000</p>
+    <p style="margin-top:8px;">Prepared by <!-- Your name --> · <!-- email --> · September 2026 · Design: TypeUI Cafe</p>
   </footer>
 
   <script>
     (function () {
-      var root = document.documentElement;
-      var stored = localStorage.getItem("proposal-theme");
-      if (stored === "dark" || (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-        root.setAttribute("data-theme", "dark");
-      }
-
-      var themeBtn = document.getElementById("theme-toggle");
-      if (themeBtn) {
-        themeBtn.addEventListener("click", function () {
-          var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-          if (next === "light") root.removeAttribute("data-theme");
-          else root.setAttribute("data-theme", "dark");
-          localStorage.setItem("proposal-theme", next);
-        });
-      }
-
       var menuBtn = document.getElementById("menu-toggle");
       var nav = document.getElementById("site-nav");
       if (menuBtn && nav) {
@@ -1485,24 +1216,19 @@
           menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
         });
       }
-
       var els = document.querySelectorAll(".reveal");
-      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (reduceMotion || !window.IntersectionObserver) {
-        els.forEach(function (el) { el.classList.add("is-visible"); });
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !window.IntersectionObserver) {
+        els.forEach(function (el) { el.classList.add("on"); });
         return;
       }
-      var io = new IntersectionObserver(
-        function (entries) {
-          entries.forEach(function (e) {
-            if (e.isIntersecting) {
-              e.target.classList.add("is-visible");
-              io.unobserve(e.target);
-            }
-          });
-        },
-        { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
-      );
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add("on");
+            io.unobserve(e.target);
+          }
+        });
+      }, { rootMargin: "0px 0px -6% 0px", threshold: 0.06 });
       els.forEach(function (el) { io.observe(el); });
     })();
   </script>

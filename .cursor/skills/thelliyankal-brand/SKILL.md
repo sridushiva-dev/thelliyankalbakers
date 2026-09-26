@@ -5,7 +5,7 @@ description: Brand tokens for Thelliyankal Bakers / Grand Reserve — luxury foo
 
 # Thelliyankal · Grand Reserve UI
 
-Apply on top of TypeUI **premium** + **typeui-fundamentals**.
+Apply on top of TypeUI **cafe** (active) + **typeui-fundamentals**.
 
 ## Intent
 
@@ -15,19 +15,20 @@ Premium plum-cake gifting: heritage (since 1980), whiskey-style packaging, festi
 
 | Role | Value | Usage |
 |------|--------|--------|
-| Background (60%) | `#f8f6f3` / `#fafaf9` | Page canvas |
-| Surface | `#ffffff` | Cards, tables |
-| Brand (30%) | `#1c1917` / `#0f172a` (slate-900) | Headers, dark sections — not pure black |
-| Accent (10%) | `#c2410c` / `#ea580c` | CTAs, kickers, focus rings |
-| Accent soft | `#fbbf24` | Highlights on dark (stats, prices) |
-| Text primary | `#0f172a` | Body on light |
-| Text muted | `#475569` | Secondary copy |
-| Border | `#e2e8f0` | Cards, dividers |
+| Background (60%) | `#f9f7f5` (cafe surface) | Page canvas |
+| Surface card | `#ffffff` | Cards, tables |
+| Brand (30%) | `#5d4432` / `#3e2b1e` (cafe primary) | Headers, coffee sections |
+| Secondary bands | `#e9e3dd` | Warm section backgrounds |
+| Accent (10%) | `#d97706` (cafe warning) | CTAs, kickers, focus rings |
+| Accent soft | `#fcd34d` | Highlights on dark (stats, prices) |
+| Text primary | `#3e2b1e` | Body on light |
+| Text muted | `#6b5a4d` | Secondary copy |
+| Border | `#ddd5cc` | Cards, dividers |
 
 ## Typography
 
-- **Display:** Instrument Serif or Fraunces — editorial headlines.
-- **UI:** Inter — 16px base, 1.5–1.65 line-height for body.
+- **Display:** Fraunces — editorial headlines (heritage / gifting).
+- **UI:** Poppins — 16px base, 1.5–1.65 line-height (TypeUI cafe).
 - Scale: 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 (1.25 ratio).
 
 ## Layout

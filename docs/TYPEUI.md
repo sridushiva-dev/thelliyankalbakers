@@ -14,7 +14,7 @@ This repo is set up for **Cursor Cloud Agents**, not desktop MCP setup. You do *
 
 | Path | Purpose |
 |------|---------|
-| `.cursor/skills/design-system/SKILL.md` | **Active** design system (default: **premium**) |
+| `.cursor/skills/design-system/SKILL.md` | **Active** design system (default: **cafe** for this repo) |
 | `.cursor/skills/typeui-fundamentals/` | TypeUI UI/UX fundamentals |
 | `.cursor/skills/thelliyankal-brand/SKILL.md` | Grand Reserve brand overrides |
 | `typeui/vendor/design-skills/*/` | Extra registry styles (**cafe**, **editorial**, **storytelling**, **refined**, …) |
