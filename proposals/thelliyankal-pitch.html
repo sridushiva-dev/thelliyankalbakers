@@ -3,996 +3,1235 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Thelliyankal Bakers — The Grand Reserve Digital Experience</title>
+  <title>Thelliyankal Bakers — Grand Reserve Digital Proposal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --void: #0a0706;
-      --espresso: #14100e;
-      --cocoa: #1f1512;
-      --amber: #d4a03c;
-      --amber-glow: #f0c56d;
-      --champagne: #f7ecd8;
-      --ivory: #fffcf5;
-      --smoke: #9a8b82;
-      --line: rgba(212, 160, 60, 0.22);
-      --glass: rgba(255, 252, 245, 0.04);
+      --bg-dark: #0c0a09;
+      --bg-dark-elevated: #141210;
+      --bg-light: #f8f6f3;
+      --bg-white: #ffffff;
+      --text-dark: #1c1917;
+      --text-muted: #57534e;
+      --text-muted-light: #a8a29e;
+      --text-on-dark: #fafaf9;
+      --text-on-dark-muted: #d6d3d1;
+      --accent: #b45309;
+      --accent-soft: #d97706;
+      --accent-pale: #fef3c7;
+      --border: #e7e5e4;
+      --border-dark: rgba(255, 255, 255, 0.08);
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+      --shadow-sm: 0 1px 2px rgba(28, 25, 23, 0.04);
+      --shadow-md: 0 12px 40px rgba(28, 25, 23, 0.08);
+      --shadow-lg: 0 24px 80px rgba(28, 25, 23, 0.12);
+      --space-xs: 8px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 40px;
+      --space-xl: 64px;
+      --space-2xl: 96px;
+      --max: 1120px;
+      --font-serif: "Instrument Serif", Georgia, serif;
+      --font-sans: "Inter", system-ui, sans-serif;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
 
     body {
-      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
-      font-size: 17px;
-      line-height: 1.7;
-      color: var(--ivory);
-      background: var(--void);
-      overflow-x: hidden;
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background: var(--bg-light);
     }
 
-    .grain {
-      pointer-events: none;
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      opacity: 0.035;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    img { max-width: 100%; display: block; }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .skip { position: absolute; left: -9999px; }
+    .skip:focus { left: 16px; top: 16px; z-index: 10000; }
+
+    /* ——— Top bar ——— */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(248, 246, 243, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
     }
 
-    /* —— HERO —— */
-    .hero {
-      min-height: 100vh;
-      min-height: 100dvh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 48px 24px 72px;
-      position: relative;
-      background:
-        radial-gradient(ellipse 120% 80% at 50% 120%, rgba(212, 160, 60, 0.18), transparent 55%),
-        radial-gradient(ellipse 60% 40% at 85% 15%, rgba(180, 90, 40, 0.12), transparent 50%),
-        linear-gradient(180deg, var(--void) 0%, var(--espresso) 40%, var(--cocoa) 100%);
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--amber), transparent);
-      opacity: 0.5;
-    }
-
-    .hero-inner {
-      max-width: 1100px;
+    .topbar-inner {
+      max-width: var(--max);
       margin: 0 auto;
-      width: 100%;
-      animation: rise 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
     }
 
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(32px); }
-      to { opacity: 1; transform: translateY(0); }
+    .brand {
+      font-family: var(--font-serif);
+      font-size: 1.125rem;
+      font-weight: 400;
+      color: var(--text-dark);
+      letter-spacing: -0.02em;
     }
 
-    .eyebrow {
+    .topbar nav {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 28px;
+      gap: 4px 20px;
     }
 
-    .eyebrow span {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--amber);
-    }
-
-    .eyebrow .line {
-      flex: 1;
-      min-width: 60px;
-      height: 1px;
-      background: linear-gradient(90deg, var(--line), transparent);
-    }
-
-    .hero h1 {
-      font-family: "Fraunces", Georgia, serif;
-      font-size: clamp(2.75rem, 8vw, 5.25rem);
-      font-weight: 700;
-      line-height: 1.02;
-      letter-spacing: -0.02em;
-      max-width: 16ch;
-      margin-bottom: 28px;
-    }
-
-    .hero h1 em {
-      font-style: italic;
+    .topbar nav a {
+      font-size: 0.8125rem;
       font-weight: 500;
-      color: var(--amber-glow);
-      display: block;
-      font-size: 0.92em;
-      margin-top: 0.15em;
+      color: var(--text-muted);
+      text-decoration: none;
     }
 
-    .hero-promise {
-      font-size: clamp(1.05rem, 2.5vw, 1.35rem);
-      color: rgba(255, 252, 245, 0.78);
-      max-width: 38em;
-      margin-bottom: 48px;
-      font-weight: 400;
-    }
+    .topbar nav a:hover { color: var(--text-dark); text-decoration: none; }
 
-    .hero-promise strong {
-      color: var(--ivory);
+    .chip {
+      font-size: 0.6875rem;
       font-weight: 600;
-    }
-
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      overflow: hidden;
-      max-width: 720px;
-    }
-
-    .hero-stats div {
-      background: var(--glass);
-      backdrop-filter: blur(12px);
-      padding: 20px 22px;
-    }
-
-    .hero-stats .num {
-      font-family: "Fraunces", serif;
-      font-size: 1.85rem;
-      font-weight: 700;
-      color: var(--amber-glow);
-      line-height: 1.1;
-    }
-
-    .hero-stats .lbl {
-      font-size: 0.72rem;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--smoke);
-      margin-top: 6px;
+      padding: 6px 12px;
+      border-radius: 100px;
+      background: var(--text-dark);
+      color: var(--text-on-dark);
     }
 
-    .scroll-hint {
-      position: absolute;
-      bottom: 28px;
-      right: 32px;
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--smoke);
-      writing-mode: vertical-rl;
+    @media (max-width: 720px) {
+      .topbar nav { display: none; }
     }
 
-    /* —— LAYOUT —— */
+    /* ——— Sections ——— */
     .section {
-      padding: 100px 24px;
-      position: relative;
+      padding: var(--space-2xl) 24px;
     }
 
-    .section.light {
-      background: var(--ivory);
-      color: var(--espresso);
+    .section--dark {
+      background: var(--bg-dark);
+      color: var(--text-on-dark);
     }
 
-    .section.mid {
-      background: linear-gradient(180deg, var(--cocoa) 0%, var(--espresso) 100%);
-    }
+    .section--dark .section-kicker { color: var(--accent-soft); }
+    .section--dark .lead { color: var(--text-on-dark-muted); }
 
-    .inner {
-      max-width: 1000px;
+    .container {
+      max-width: var(--max);
       margin: 0 auto;
     }
 
-    .section-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.22em;
+    .section-kicker {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: 16px;
+      color: var(--accent);
+      margin-bottom: var(--space-sm);
     }
 
-    .section.light .section-label { color: #8b5a2b; }
+    .display {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5.5vw, 3.75rem);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: inherit;
+      margin-bottom: var(--space-md);
+    }
 
-    h2 {
-      font-family: "Fraunces", serif;
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 700;
-      line-height: 1.15;
+    .display em {
+      font-style: italic;
+      color: var(--accent-soft);
+    }
+
+    .section--light .display em { color: var(--accent); }
+
+    h2.title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 400;
+      line-height: 1.12;
       letter-spacing: -0.02em;
-      margin-bottom: 24px;
+      margin-bottom: var(--space-md);
     }
 
     .lead {
-      font-size: 1.12rem;
-      color: var(--smoke);
-      max-width: 42em;
-      margin-bottom: 40px;
+      font-size: 1.125rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+      max-width: 42rem;
+      margin-bottom: var(--space-lg);
     }
 
-    .section.light .lead { color: #5c5048; }
+    .lead strong { color: var(--text-dark); font-weight: 600; }
+    .section--dark .lead strong { color: var(--text-on-dark); }
 
-    /* Gap visual */
-    .gap-grid {
+    /* ——— Hero ——— */
+    .hero {
+      padding: var(--space-xl) 24px var(--space-2xl);
+      background:
+        radial-gradient(ellipse 100% 80% at 70% -20%, rgba(217, 119, 6, 0.12), transparent 50%),
+        var(--bg-light);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-grid {
+      max-width: var(--max);
+      margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin-top: 48px;
+      gap: var(--space-xl);
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+    }
+
+    .hero-copy .badge-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: var(--space-md);
+    }
+
+    .hero-copy .badge-row .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+    }
+
+    .hero-copy .badge-row span {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 420px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(145deg, #1c1917 0%, #292524 50%, #1c1917 100%);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 30% 40%, rgba(217, 119, 6, 0.35), transparent 45%),
+        radial-gradient(circle at 80% 70%, rgba(180, 83, 9, 0.2), transparent 40%);
+    }
+
+    .hero-visual-content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hero-visual h2 {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: var(--text-on-dark);
+      line-height: 1.2;
+      max-width: 14ch;
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 500px) {
+      .stat-row { grid-template-columns: 1fr; }
+    }
+
+    .stat {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      padding: 16px;
+    }
+
+    .stat .value {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      color: #fbbf24;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat .label {
+      font-size: 0.6875rem;
+      line-height: 1.4;
+      color: var(--text-on-dark-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .price-pill {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-top: var(--space-md);
+      padding: 12px 20px;
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .price-pill .amount {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: var(--text-dark);
+    }
+
+    .price-pill .meta {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    /* ——— Gap cards ——— */
+    .compare-two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
     }
 
     @media (max-width: 700px) {
-      .gap-grid { grid-template-columns: 1fr; }
+      .compare-two { grid-template-columns: 1fr; }
     }
 
-    .gap-card {
-      border-radius: 20px;
-      padding: 36px 32px;
-      position: relative;
-      overflow: hidden;
+    .compare-card {
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      border: 1px solid var(--border-dark);
     }
 
-    .gap-card.product {
-      background: linear-gradient(145deg, #2a1f18, #1a120e);
-      border: 1px solid var(--line);
+    .compare-card--high {
+      background: linear-gradient(160deg, #292524, #1c1917);
     }
 
-    .gap-card.site {
-      background: linear-gradient(145deg, #1a1412, #12100e);
-      border: 1px dashed rgba(154, 139, 130, 0.35);
+    .compare-card--low {
+      background: var(--bg-dark-elevated);
+      border-style: dashed;
+      opacity: 0.95;
     }
 
-    .gap-card .score {
-      font-family: "Fraunces", serif;
-      font-size: 4rem;
-      font-weight: 700;
+    .compare-card .score {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
       line-height: 1;
       margin-bottom: 12px;
     }
 
-    .gap-card.product .score { color: var(--amber-glow); }
-    .gap-card.site .score { color: var(--smoke); }
+    .compare-card--high .score { color: #fbbf24; }
+    .compare-card--low .score { color: var(--text-muted-light); }
 
-    .gap-card h3 {
-      font-family: "Fraunces", serif;
+    .compare-card h3 {
+      font-family: var(--font-serif);
       font-size: 1.5rem;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
+      font-weight: 400;
     }
 
-    .gap-card p {
-      font-size: 0.95rem;
-      color: rgba(255, 252, 245, 0.72);
+    .compare-card p {
+      font-size: 0.9375rem;
+      color: var(--text-on-dark-muted);
+      line-height: 1.55;
     }
 
-    .gap-bridge {
+    .quote-band {
+      margin-top: var(--space-lg);
+      padding: var(--space-lg);
       text-align: center;
-      margin: 48px 0 0;
-      padding: 32px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, rgba(212, 160, 60, 0.15), rgba(212, 160, 60, 0.03));
-      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: rgba(217, 119, 6, 0.12);
+      border: 1px solid rgba(217, 119, 6, 0.25);
     }
 
-    .gap-bridge p {
-      font-family: "Fraunces", serif;
-      font-size: clamp(1.35rem, 3vw, 1.75rem);
+    .quote-band p {
+      font-family: var(--font-serif);
+      font-size: clamp(1.25rem, 2.5vw, 1.625rem);
       font-style: italic;
-      color: var(--champagne);
+      color: var(--text-on-dark);
+      line-height: 1.45;
+      max-width: 36rem;
+      margin: 0 auto;
     }
 
-    /* Bento */
-    .bento {
+    /* ——— Feature list (fixed layout) ——— */
+    .feature-stack {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      margin-top: var(--space-lg);
+    }
+
+    .feature-row {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      padding: var(--space-md) var(--space-lg);
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .feature-row:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+
+    .feature-row--dark {
+      background: var(--text-dark);
+      border-color: transparent;
+      color: var(--text-on-dark);
+    }
+
+    .feature-row--dark p { color: var(--text-on-dark-muted); }
+    .feature-row--dark .feature-title { color: #fbbf24; }
+
+    @media (max-width: 600px) {
+      .feature-row {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+
+    .feature-icon {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--accent-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .feature-row--dark .feature-icon {
+      background: rgba(251, 191, 36, 0.15);
+    }
+
+    .feature-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .feature-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin-bottom: 6px;
+      color: var(--text-dark);
+      letter-spacing: -0.01em;
+    }
+
+    .feature-body p {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* ——— Pillars ——— */
+    .pillar-grid {
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 16px;
-      margin-top: 40px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
     }
-
-    .bento > * {
-      border-radius: 18px;
-      padding: 28px;
-      border: 1px solid rgba(20, 16, 14, 0.08);
-      background: #fff;
-    }
-
-    .section.light .bento > * {
-      box-shadow: 0 20px 50px rgba(20, 16, 14, 0.06);
-    }
-
-    .bento .wide { grid-column: span 8; }
-    .bento .narrow { grid-column: span 4; }
-    .bento .half { grid-column: span 6; }
-    .bento .full { grid-column: span 12; }
 
     @media (max-width: 800px) {
-      .bento .wide, .bento .narrow, .bento .half { grid-column: span 12; }
+      .pillar-grid { grid-template-columns: 1fr; }
     }
 
-    .bento h3 {
-      font-family: "Fraunces", serif;
-      font-size: 1.35rem;
-      margin-bottom: 10px;
-      color: var(--espresso);
+    .pillar {
+      padding: var(--space-md);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-dark);
+      background: var(--bg-dark-elevated);
     }
 
-    .bento p { font-size: 0.92rem; color: #5c5048; margin: 0; }
-
-    .bento .accent {
-      background: linear-gradient(160deg, #1f1512, #2c1e16);
-      color: var(--ivory);
-      border-color: var(--line);
+    .pillar h4 {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-on-dark);
     }
 
-    .bento .accent h3 { color: var(--amber-glow); }
-    .bento .accent p { color: rgba(255, 252, 245, 0.75); }
+    .pillar p {
+      font-size: 0.875rem;
+      color: var(--text-on-dark-muted);
+      line-height: 1.5;
+      margin: 0;
+    }
 
-    /* Market table */
-    .market-wrap {
-      margin-top: 48px;
-      border-radius: 24px;
+    /* ——— Table ——— */
+    .table-wrap {
+      margin-top: var(--space-lg);
+      border-radius: var(--radius-lg);
       overflow: hidden;
-      border: 1px solid var(--line);
-      background: var(--glass);
+      border: 1px solid var(--border);
+      background: var(--bg-white);
+      box-shadow: var(--shadow-md);
     }
 
-    table.market {
+    table.data {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.92rem;
+      font-size: 0.9375rem;
     }
 
-    table.market th,
-    table.market td {
+    table.data th,
+    table.data td {
       padding: 18px 22px;
       text-align: left;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       vertical-align: top;
+      border-bottom: 1px solid var(--border);
     }
 
-    table.market th {
-      background: rgba(0, 0, 0, 0.35);
-      font-size: 0.72rem;
+    table.data th {
+      background: #fafaf9;
+      font-size: 0.6875rem;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--amber);
-      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
     }
 
-    table.market tr:last-child td { border-bottom: none; }
+    table.data tr:last-child td { border-bottom: none; }
 
-    .market .strike {
-      color: var(--smoke);
-      text-decoration: line-through;
-      text-decoration-color: rgba(212, 160, 60, 0.5);
+    table.data .muted { color: var(--text-muted); text-decoration: line-through; }
+
+    table.data tr.highlight {
+      background: linear-gradient(90deg, var(--accent-pale), #fff);
     }
 
-    .market .you {
-      background: linear-gradient(90deg, rgba(212, 160, 60, 0.12), transparent);
+    table.data tr.highlight td:last-child {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--accent);
     }
 
-    .market .you td:last-child {
-      font-family: "Fraunces", serif;
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--amber-glow);
-    }
-
-    /* Investment */
-    .price-reveal {
+    /* ——— Pricing layout ——— */
+    .pricing-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
+      grid-template-columns: 340px 1fr;
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
       align-items: start;
-      margin-top: 48px;
     }
 
-    @media (max-width: 800px) {
-      .price-reveal { grid-template-columns: 1fr; }
+    @media (max-width: 900px) {
+      .pricing-grid { grid-template-columns: 1fr; }
     }
 
-    .price-box {
-      padding: 40px 36px;
-      border-radius: 24px;
-      background: linear-gradient(165deg, #1a120e 0%, #0a0706 100%);
-      border: 1px solid var(--line);
+    .pricing-card {
       position: sticky;
-      top: 24px;
+      top: 88px;
+      padding: var(--space-lg);
+      border-radius: var(--radius-lg);
+      background: var(--text-dark);
+      color: var(--text-on-dark);
+      box-shadow: var(--shadow-lg);
     }
 
-    .price-box .from {
+    .pricing-card .label {
       font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--smoke);
+      letter-spacing: 0.1em;
+      color: var(--text-on-dark-muted);
       margin-bottom: 8px;
     }
 
-    .price-box .amount {
-      font-family: "Fraunces", serif;
-      font-size: clamp(3rem, 8vw, 4.25rem);
-      font-weight: 700;
-      color: var(--amber-glow);
+    .pricing-card .big {
+      font-family: var(--font-serif);
+      font-size: 3.25rem;
       line-height: 1;
+      color: #fbbf24;
+      margin-bottom: var(--space-md);
     }
 
-    .price-box .sub {
-      margin-top: 16px;
-      font-size: 0.9rem;
-      color: rgba(255, 252, 245, 0.7);
+    .pricing-card .note {
+      font-size: 0.875rem;
+      color: var(--text-on-dark-muted);
+      line-height: 1.55;
+      margin-bottom: var(--space-md);
     }
 
-    .price-box .savings {
-      margin-top: 24px;
-      padding-top: 24px;
-      border-top: 1px solid var(--line);
-      font-size: 0.88rem;
-      color: var(--champagne);
+    .pricing-card .save {
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--border-dark);
+      font-size: 0.875rem;
+      color: var(--text-on-dark-muted);
     }
 
-    .price-box .savings strong { color: var(--amber-glow); }
+    .pricing-card .save strong { color: #fbbf24; }
 
     .line-items {
       list-style: none;
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
     }
 
     .line-items li {
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 16px;
-      padding: 16px 0;
-      border-bottom: 1px solid rgba(20, 16, 14, 0.08);
-      font-size: 0.95rem;
+      gap: 8px 24px;
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
     }
-
-    .section.light .line-items li { border-color: rgba(20, 16, 14, 0.08); }
 
     .line-items li:last-child {
       border-bottom: none;
-      font-weight: 700;
-      font-size: 1.1rem;
-      padding-top: 20px;
-      margin-top: 8px;
-      border-top: 2px solid var(--espresso);
+      background: #fafaf9;
+      font-weight: 600;
     }
 
-    .line-items .amt {
-      font-family: "Fraunces", serif;
-      font-weight: 600;
-      color: #8b5a2b;
+    .line-items .item-title {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    .line-items .item-desc {
+      grid-column: 1 / -1;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      margin-top: -4px;
+    }
+
+    .line-items .item-amt {
+      font-family: var(--font-serif);
+      font-size: 1.125rem;
+      color: var(--accent);
       white-space: nowrap;
     }
 
-    .line-items li:last-child .amt {
-      font-size: 1.35rem;
-      color: var(--espresso);
+    .line-items li:last-child .item-amt {
+      font-size: 1.375rem;
+      color: var(--text-dark);
     }
 
-    .line-items .desc {
-      font-size: 0.82rem;
-      color: #5c5048;
-      grid-column: 1 / -1;
-      margin-top: -8px;
+    .terms {
+      margin-top: var(--space-md);
+      font-size: 0.8125rem;
+      color: var(--text-muted);
     }
 
-    /* Scope */
-    .scope-columns {
+    /* ——— Checklist ——— */
+    .check-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      margin-top: 40px;
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
     }
 
     @media (max-width: 700px) {
-      .scope-columns { grid-template-columns: 1fr; }
+      .check-grid { grid-template-columns: 1fr; }
     }
 
-    .scope-block h3 {
-      font-family: "Fraunces", serif;
-      font-size: 1.25rem;
-      margin-bottom: 16px;
-      color: var(--amber-glow);
+    .check-col h3 {
+      font-family: var(--font-serif);
+      font-size: 1.375rem;
+      margin-bottom: var(--space-md);
+      font-weight: 400;
     }
 
-    ul.gold-check {
+    ul.checks {
       list-style: none;
     }
 
-    ul.gold-check li {
-      padding: 10px 0 10px 32px;
+    ul.checks li {
       position: relative;
-      font-size: 0.94rem;
-      color: rgba(255, 252, 245, 0.85);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 10px 0 10px 28px;
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
     }
 
-    ul.gold-check li::before {
+    ul.checks li::before {
       content: "";
       position: absolute;
       left: 0;
       top: 16px;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--amber);
-      box-shadow: 0 0 12px rgba(212, 160, 60, 0.6);
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      background: var(--accent-soft);
     }
 
-    .additional-panel {
-      margin-top: 48px;
-      padding: 32px;
-      border-radius: 20px;
-      background: rgba(255, 252, 245, 0.03);
-      border: 1px dashed var(--line);
+    .callout-muted {
+      margin-top: var(--space-lg);
+      padding: var(--space-md) var(--space-lg);
+      border-radius: var(--radius-md);
+      background: #fafaf9;
+      border: 1px dashed var(--border);
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.55;
     }
 
-    .additional-panel h3 {
-      font-family: "Fraunces", serif;
-      font-size: 1.2rem;
-      margin-bottom: 12px;
+    .callout-muted strong { color: var(--text-dark); }
+
+    /* ——— Timeline ——— */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
     }
 
-    .additional-panel p { font-size: 0.92rem; color: var(--smoke); }
-
-    /* Timeline */
-    .timeline {
-      margin-top: 48px;
-      position: relative;
-      padding-left: 32px;
+    @media (max-width: 800px) {
+      .steps { grid-template-columns: 1fr 1fr; }
     }
 
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 7px;
-      top: 8px;
-      bottom: 8px;
-      width: 2px;
-      background: linear-gradient(180deg, var(--amber), transparent);
+    @media (max-width: 480px) {
+      .steps { grid-template-columns: 1fr; }
     }
 
-    .tl {
-      position: relative;
-      padding-bottom: 36px;
+    .step {
+      padding: var(--space-md);
+      border-radius: var(--radius-md);
+      background: var(--bg-dark-elevated);
+      border: 1px solid var(--border-dark);
     }
 
-    .tl::before {
-      content: "";
-      position: absolute;
-      left: -28px;
-      top: 8px;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: var(--void);
-      border: 2px solid var(--amber);
-    }
-
-    .tl .w {
-      font-size: 0.72rem;
+    .step .num {
+      font-size: 0.6875rem;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--amber);
+      color: var(--accent-soft);
+      margin-bottom: 8px;
+    }
+
+    .step h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-on-dark);
       margin-bottom: 6px;
     }
 
-    .tl strong { display: block; font-size: 1.05rem; margin-bottom: 6px; }
+    .step p {
+      font-size: 0.8125rem;
+      color: var(--text-on-dark-muted);
+      margin: 0;
+      line-height: 1.5;
+    }
 
-    .tl p { font-size: 0.9rem; color: var(--smoke); margin: 0; }
-
-    /* CTA */
+    /* ——— Finale ——— */
     .finale {
       text-align: center;
-      padding: 120px 24px;
-      background:
-        radial-gradient(ellipse 80% 50% at 50% 100%, rgba(212, 160, 60, 0.2), transparent),
-        var(--void);
+      padding: var(--space-2xl) 24px;
+      background: linear-gradient(180deg, var(--bg-light), #efe9e0);
+      border-top: 1px solid var(--border);
     }
 
-    .finale h2 {
-      font-size: clamp(2.2rem, 6vw, 3.5rem);
-      max-width: 20ch;
-      margin: 0 auto 24px;
+    .finale .display { max-width: 20ch; margin-left: auto; margin-right: auto; }
+
+    .finale .lead { margin-left: auto; margin-right: auto; text-align: center; }
+
+    .finale-cta {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
     }
 
-    .finale p {
-      max-width: 32em;
-      margin: 0 auto 40px;
-      color: var(--smoke);
-      font-size: 1.1rem;
+    .finale-cta .big-price {
+      font-family: var(--font-serif);
+      font-size: 2.75rem;
+      color: var(--accent);
     }
 
-    .finale .cta-price {
-      font-family: "Fraunces", serif;
-      font-size: 2.5rem;
-      color: var(--amber-glow);
-      margin-bottom: 32px;
-    }
-
-    .steps {
+    .finale-pills {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
     }
 
-    .steps span {
-      padding: 12px 20px;
+    .finale-pills span {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      padding: 10px 16px;
       border-radius: 100px;
-      border: 1px solid var(--line);
-      font-size: 0.85rem;
-      color: var(--champagne);
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
     }
 
-    footer {
+    footer.site-footer {
       text-align: center;
-      padding: 40px 24px 60px;
-      font-size: 0.8rem;
-      color: var(--smoke);
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: var(--space-lg) 24px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      background: var(--bg-white);
+      border-top: 1px solid var(--border);
+    }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .feature-row:hover { transform: none; }
     }
 
     @media print {
-      .grain, .scroll-hint { display: none; }
-      .hero { min-height: auto; page-break-after: always; }
-      body { background: white; color: black; }
-      .section.mid { background: #f5f5f5; color: black; }
+      .topbar { position: static; }
+      .pricing-card { position: static; }
+      .reveal { opacity: 1; transform: none; }
     }
   </style>
 </head>
 <body>
-  <div class="grain" aria-hidden="true"></div>
+  <a class="skip" href="#main">Skip to content</a>
 
-  <header class="hero">
-    <div class="hero-inner">
-      <div class="eyebrow">
-        <span>Private proposal · Christmas 2026</span>
-        <span class="line"></span>
-        <span>Thelliyankal Bakers</span>
-      </div>
-      <h1>
-        The website your cake<br />already deserves.
-        <em>Built for Grand Reserve — nowhere else.</em>
-      </h1>
-      <p class="hero-promise">
-        I am not offering you another template store. I am offering the <strong>best online home</strong> for the most distinctive plum cake in Kerala — a cinematic storefront, a calm command centre for orders, and infrastructure that can carry <strong>10,000–15,000 visitors</strong> without breaking in the week that matters.
-      </p>
-      <div class="hero-stats">
-        <div>
-          <div class="num">1,000+</div>
-          <div class="lbl">Amazon reviews · social proof you earned</div>
-        </div>
-        <div>
-          <div class="num">45 yrs</div>
-          <div class="lbl">Heritage · three generations</div>
-        </div>
-        <div>
-          <div class="num">15k</div>
-          <div class="lbl">Visitors · designed for your next campaign</div>
-        </div>
-      </div>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">Thelliyankal · Proposal</div>
+      <nav aria-label="Sections">
+        <a href="#vision">Vision</a>
+        <a href="#investment">Investment</a>
+        <a href="#scope">Scope</a>
+        <a href="#timeline">Timeline</a>
+      </nav>
+      <span class="chip">Confidential</span>
     </div>
-    <span class="scroll-hint">Scroll</span>
   </header>
 
-  <section class="section mid">
-    <div class="inner">
-      <p class="section-label">The uncomfortable truth</p>
-      <h2>Your product stops people.<br />Your website lets them go.</h2>
-      <p class="lead">
-        Influencers pause for the bottle-shaped box. Amazon buyers leave stars. Then they land on a page that does not feel like ₹1,400 of legacy — and trust leaks before checkout. That is not a marketing problem. It is a <em>experience</em> problem. We fix the experience end to end.
-      </p>
+  <main id="main">
 
-      <div class="gap-grid">
-        <article class="gap-card product">
-          <div class="score">10</div>
-          <h3>Grand Reserve</h3>
-          <p>Packaging worth filming. Story worth telling. Flavour worth repeating every December.</p>
-        </article>
-        <article class="gap-card site">
-          <div class="score">—</div>
-          <h3>Today’s digital shelf</h3>
-          <p>Generic layout, shipping scars, channels that do not match. The cake is premium; the doorway is not.</p>
-        </article>
-      </div>
-
-      <div class="gap-bridge">
-        <p>“My job is to close that gap — so the first click feels as intentional as the first slice.”</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section light">
-    <div class="inner">
-      <p class="section-label">The vision</p>
-      <h2>A custom platform — not a rented shelf</h2>
-      <p class="lead">
-        Shopify solved “sell something online.” You need “<strong>sell this legend, this season, without chaos.</strong>” A bespoke build puts your brand, your rules, and your customer list in one place you own forever.
-      </p>
-
-      <div class="bento">
-        <div class="bento wide accent">
-          <h3>Storefront that sells the story</h3>
-          <p>Mobile-first, fast, festive — built around one hero SKU so every pixel supports Grand Reserve, not a catalogue you do not need.</p>
-        </div>
-        <div class="bento narrow">
-          <h3>Your data</h3>
-          <p>Customers and orders in your database. Export anytime. No platform lock-in.</p>
-        </div>
-        <div class="bento half">
-          <h3>Ops that breathe</h3>
-          <p>One admin: paid orders, labels, pause when the kitchen is full — built for how you actually work in December.</p>
-        </div>
-        <div class="bento half">
-          <h3>India-ready rails</h3>
-          <p>Razorpay · Shiprocket · pincode discipline — the same stack serious D2C brands use, wired correctly.</p>
-        </div>
-        <div class="bento full">
-          <h3>Why we are leaving Shopify behind</h3>
-          <p>You already felt it: Delhivery friction, weak design, app sprawl — while still paying monthly rent. Custom means the shipping logic and the luxury feel are <em>designed in</em>, not bolted on from the app store.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section mid">
-    <div class="inner">
-      <p class="section-label">Why this is foolproof</p>
-      <h2>Not magic — a system you can run every December</h2>
-      <p class="lead">
-        “Foolproof” means fewer surprises: proven payment and courier partners, a daily rhythm you can teach your staff in one afternoon, and a kill switch when demand outruns the oven.
-      </p>
-
-      <div class="scope-columns">
-        <div class="scope-block">
-          <h3>Engineered for trust</h3>
-          <ul class="gold-check">
-            <li>Razorpay hosted checkout — UPI, cards, netbanking; money to your bank</li>
-            <li>Pincode check before pay — fewer wrong-city nightmares</li>
-            <li>Payment webhooks tested — “paid” always becomes an order in admin</li>
-            <li>Load-tested for campaign traffic — 15k visitors is within design</li>
-          </ul>
-        </div>
-        <div class="scope-block">
-          <h3>Engineered for your team</h3>
-          <ul class="gold-check">
-            <li>Morning ritual: open admin → fulfil → ship → customer notified</li>
-            <li>CSV export for accounts and batch labels</li>
-            <li>Corporate leads tracked — not lost in DMs</li>
-            <li>Handover training + peak-week playbook included</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section light" id="investment">
-    <div class="inner">
-      <p class="section-label">Investment</p>
-      <h2>What the market charges — and what you pay</h2>
-      <p class="lead">
-        Agencies quote lakhs because they bundle strategy, design, engineering, integrations, and project management. I have scoped this tightly to <strong>one product, one season, one outcome</strong> — without cutting the parts that make it premium or reliable.
-      </p>
-
-      <div class="market-wrap">
-        <table class="market">
-          <thead>
-            <tr>
-              <th>Approach</th>
-              <th>Typical market cost (India)</th>
-              <th>Fit for Thelliyankal</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Top-tier agency · full custom ecommerce + admin</td>
-              <td class="strike">₹8,00,000 – ₹25,00,000+</td>
-              <td>Overkill; long timelines</td>
-            </tr>
-            <tr>
-              <td>Mid-tier agency · custom storefront + ops</td>
-              <td class="strike">₹4,50,000 – ₹12,00,000</td>
-              <td>Strong, but heavy retainers</td>
-            </tr>
-            <tr>
-              <td>Freelancer · generic ecommerce site</td>
-              <td class="strike">₹2,00,000 – ₹4,50,000</td>
-              <td>Often no real admin or shipping depth</td>
-            </tr>
-            <tr>
-              <td>Shopify premium setup + apps (annualised 2–3 yr)</td>
-              <td class="strike">₹2,00,000 – ₹5,00,000+</td>
-              <td>You still rent; design & Delhivery pain remain</td>
-            </tr>
-            <tr class="you">
-              <td><strong>This proposal · bespoke Grand Reserve platform</strong></td>
-              <td>Comparable build value <strong>₹4,00,000 – ₹6,50,000</strong> at market rates</td>
-              <td>₹1,50,000</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <p class="lead" style="margin-top:32px; margin-bottom:0;">
-        <strong>Why ₹1,50,000 is rational:</strong> you are not funding a ten-person agency overhead. You are funding a focused build — design intent, frontend craft, admin panel, payment and logistics wiring, testing, and launch — priced as a partner investment in your Christmas, not a corporate invoice.
-      </p>
-
-      <div class="price-reveal">
-        <div class="price-box">
-          <div class="from">One-time platform build</div>
-          <div class="amount">₹1,50,000</div>
-          <p class="sub">
-            Everything in the scope below. No hidden “phase 2” inside this number.
-            <br /><br />
-            <strong>Not included:</strong> hosting, Razorpay fees, courier charges, WhatsApp/marketing tools, ad spend — you pay providers directly (transparent, at cost).
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-copy reveal">
+          <div class="badge-row">
+            <span class="dot" aria-hidden="true"></span>
+            <span>Christmas 2026 · Grand Reserve</span>
+          </div>
+          <h1 class="display">
+            The website your cake<br />already deserves.
+          </h1>
+          <p class="lead">
+            I am building you the <strong>best online home</strong> for Kerala’s most distinctive plum cake — a storefront that feels as premium as the bottle on your shelf, plus a calm <strong>business panel</strong> so you run orders without app chaos. Built for <strong>10,000–15,000 visitors</strong> when your campaign hits.
           </p>
-          <p class="savings">
-            vs. typical <strong>₹4–6.5L</strong> comparable custom quote,<br />
-            you retain roughly <strong>₹2.5–5L+</strong> in cash — reinvest in inventory, ads, or packaging.
-          </p>
+          <div class="price-pill">
+            <span class="amount">₹1,50,000</span>
+            <span class="meta">one-time build · integrations scoped</span>
+          </div>
         </div>
 
-        <div>
-          <h3 style="font-family:Fraunces,serif; font-size:1.5rem; margin-bottom:8px;">Where every rupee goes</h3>
-          <p style="font-size:0.9rem; color:#5c5048; margin-bottom:24px;">Detailed build breakdown (professional services)</p>
-          <ul class="line-items">
-            <li>
-              <span>Discovery, positioning & delivery-zone strategy</span>
-              <span class="amt">₹15,000</span>
-              <span class="desc">Aligning story, Kerala/pincode rules, pricing vs Amazon, migration plan from Shopify</span>
-            </li>
-            <li>
-              <span>UX & visual design (storefront + admin)</span>
-              <span class="amt">₹28,000</span>
-              <span class="desc">Premium D2C look — not a template; mobile-first Christmas funnel</span>
-            </li>
-            <li>
-              <span>Customer website development</span>
-              <span class="amt">₹38,000</span>
-              <span class="desc">Home, Grand Reserve PDP, festive landing, policies, corporate enquiry, SEO structure</span>
-            </li>
-            <li>
-              <span>Business admin panel</span>
-              <span class="amt">₹42,000</span>
-              <span class="desc">Orders, customers, status workflow, exports, pause orders, leads, settings</span>
-            </li>
-            <li>
-              <span>Integrations (Razorpay + Shiprocket + email)</span>
-              <span class="amt">₹22,000</span>
-              <span class="desc">Webhooks, checkout, label workflow, transactional notifications</span>
-            </li>
-            <li>
-              <span>QA, deployment, training & launch</span>
-              <span class="amt">₹15,000</span>
-              <span class="desc">Pincode/payment tests, go-live, handover session, peak-week guide</span>
-            </li>
-            <li>
-              <span>Total build fee</span>
-              <span class="amt">₹1,50,000</span>
-            </li>
-          </ul>
-          <p style="font-size:0.85rem; color:#5c5048; margin-top:20px;">
-            Suggested payment: <strong>40%</strong> on agreement · <strong>40%</strong> on staging demo · <strong>20%</strong> on go-live.
-          </p>
-        </div>
+        <aside class="hero-visual reveal" aria-label="Key metrics">
+          <div class="hero-visual-content">
+            <h2>Proof you’ve already won the product war.</h2>
+            <div class="stat-row">
+              <div class="stat">
+                <div class="value">1,000+</div>
+                <div class="label">Amazon reviews</div>
+              </div>
+              <div class="stat">
+                <div class="value">45</div>
+                <div class="label">Years of legacy</div>
+              </div>
+              <div class="stat">
+                <div class="value">15k</div>
+                <div class="label">Visitors planned for</div>
+              </div>
+            </div>
+          </div>
+        </aside>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section mid">
-    <div class="inner">
-      <p class="section-label">Deliverables</p>
-      <h2>Exactly what you get for ₹1.5 lakh</h2>
-
-      <div class="scope-columns">
-        <div class="scope-block">
-          <h3>Public experience</h3>
-          <ul class="gold-check">
-            <li>Branded, fast, mobile-first website</li>
-            <li>Grand Reserve product story page</li>
-            <li>Christmas / campaign landing for ads & Instagram</li>
-            <li>Pincode or zone eligibility before checkout</li>
-            <li>Cart & Razorpay checkout</li>
-            <li>Corporate & bulk enquiry capture</li>
-            <li>Organic SEO foundation</li>
-          </ul>
-        </div>
-        <div class="scope-block">
-          <h3>Your command centre</h3>
-          <ul class="gold-check">
-            <li>Secure staff login</li>
-            <li>Live order dashboard & alerts</li>
-            <li>Full order lifecycle controls</li>
-            <li>Customer history & export</li>
-            <li>Pause new orders when at capacity</li>
-            <li>Corporate pipeline view</li>
-            <li>Shopify data migration support</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="additional-panel">
-        <h3>Additional — billed separately (by providers or optional add-ons)</h3>
-        <p>
-          Hosting (~₹500–₹2,000/mo) · Razorpay (~2% + GST per sale) · Shiprocket (per shipment) · domain · WhatsApp automation (Interakt) · professional photography · paid ads · monthly maintenance after handover. You see every bill; nothing is smuggled into the ₹1.5L build.
+    <section class="section section--dark">
+      <div class="container reveal">
+        <p class="section-kicker">The gap</p>
+        <h2 class="title">Your product stops people.<br />Your doorway lets them leave.</h2>
+        <p class="lead">
+          The box gets filmed. Amazon gets the stars. Then the website feels generic — and trust leaks before Razorpay. This project closes that gap so the <em>first click</em> feels as intentional as the <em>first slice</em>.
         </p>
-      </div>
-    </div>
-  </section>
 
-  <section class="section light">
-    <div class="inner">
-      <p class="section-label">Context</p>
-      <h2>Market & competitors — in one breath</h2>
-      <p class="lead">
-        Kerala’s Christmas cake wave is a <strong>₹250–600 crore</strong> seasonal category — premium gifting, pan-India shipments, corporate hampers. Pandhal proved Amazon #1 is achievable; Pettikadai and others win on pincode clarity. Your packaging is already ahead of most — this project puts the <em>digital</em> experience in the same league.
-      </p>
-    </div>
-  </section>
+        <div class="compare-two">
+          <article class="compare-card compare-card--high">
+            <div class="score">10</div>
+            <h3>Grand Reserve</h3>
+            <p>Packaging, story, flavour — a gift people remember and reorder every December.</p>
+          </article>
+          <article class="compare-card compare-card--low">
+            <div class="score">—</div>
+            <h3>Today’s digital shelf</h3>
+            <p>Template feel, shipping scars, channels that don’t match the price on the box.</p>
+          </article>
+        </div>
 
-  <section class="section mid">
-    <div class="inner">
-      <p class="section-label">Timeline</p>
-      <h2>Six weeks to a site worth your cake</h2>
-      <div class="timeline">
-        <div class="tl">
-          <div class="w">Week 1</div>
-          <strong>Kickoff & accounts</strong>
-          <p>Story, zones, pricing, Razorpay + Shiprocket readiness, Shopify export.</p>
-        </div>
-        <div class="tl">
-          <div class="w">Week 2–3</div>
-          <strong>Storefront craft</strong>
-          <p>Design + build — the experience your customers will feel in their chest before they pay.</p>
-        </div>
-        <div class="tl">
-          <div class="w">Week 4–5</div>
-          <strong>Admin & integrations</strong>
-          <p>Orders, payments, shipping workflow — tested like Christmas already started.</p>
-        </div>
-        <div class="tl">
-          <div class="w">Week 6</div>
-          <strong>Launch</strong>
-          <p>Live on your domain, training done, playbook in your hands.</p>
+        <div class="quote-band">
+          <p>“I’m not selling you Shopify. I’m selling you ownership — brand, data, and one place to run Christmas.”</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="finale">
-    <p class="section-label" style="margin-bottom:12px;">The ask</p>
-    <h2>Let’s give Grand Reserve<br />the entrance it deserves.</h2>
-    <p>
-      You are not buying “a website.” You are buying the best online expression of a product you already proved — for a build fee that is a fraction of what the market would normally charge for this depth.
-    </p>
-    <div class="cta-price">₹1,50,000 · one-time build</div>
-    <div class="steps">
-      <span>1 · Align & sign</span>
-      <span>2 · Open payment & shipping accounts</span>
-      <span>3 · Build & review</span>
-      <span>4 · Launch Christmas-ready</span>
-    </div>
-  </section>
+    <section class="section section--light" id="vision">
+      <div class="container reveal">
+        <p class="section-kicker">The vision</p>
+        <h2 class="title">A custom platform — not a rented shelf</h2>
+        <p class="lead">
+          Shopify answered “sell online.” You need <strong>sell this legend, this season, without chaos</strong>. Everything below is engineered as one system — no broken grids, no ten apps — just clarity.
+        </p>
 
-  <footer>
-    <p>Confidential proposal for Thelliyankal Bakers · Custom digital platform · Build fee ₹1,50,000 (INR)</p>
-    <p style="margin-top:10px;">Prepared by <!-- Your name --> · <!-- email / phone --> · September 2026</p>
+        <div class="feature-stack">
+          <article class="feature-row feature-row--dark">
+            <div class="feature-icon" aria-hidden="true">✦</div>
+            <div class="feature-body">
+              <h3 class="feature-title">Storefront that sells the story</h3>
+              <p>Mobile-first, fast, festive — one hero SKU so every screen supports Grand Reserve, not a catalogue you don’t need.</p>
+            </div>
+          </article>
+
+          <article class="feature-row">
+            <div class="feature-icon" aria-hidden="true">◆</div>
+            <div class="feature-body">
+              <h3 class="feature-title">Your data, in your hands</h3>
+              <p>Customers and orders live in your database. Export anytime. No platform lock-in when you grow next year.</p>
+            </div>
+          </article>
+
+          <article class="feature-row">
+            <div class="feature-icon" aria-hidden="true">◆</div>
+            <div class="feature-body">
+              <h3 class="feature-title">Operations that breathe</h3>
+              <p>One admin: paid orders, shipping steps, pause when the kitchen is full — built for how December actually feels.</p>
+            </div>
+          </article>
+
+          <article class="feature-row">
+            <div class="feature-icon" aria-hidden="true">◆</div>
+            <div class="feature-body">
+              <h3 class="feature-title">India-ready rails</h3>
+              <p>Razorpay, Shiprocket, pincode discipline — the same stack serious D2C brands use, wired correctly from day one.</p>
+            </div>
+          </article>
+
+          <article class="feature-row">
+            <div class="feature-icon" aria-hidden="true">◆</div>
+            <div class="feature-body">
+              <h3 class="feature-title">Why we’re leaving Shopify</h3>
+              <p>You felt Delhivery friction and weak design while paying monthly rent. Custom puts luxury feel and shipping logic <em>inside</em> the product — not from the app store.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark">
+      <div class="container reveal">
+        <p class="section-kicker">Reliability</p>
+        <h2 class="title">Foolproof means a system,<br />not a miracle</h2>
+        <p class="lead">Proven partners, a daily rhythm your staff can learn once, and a kill switch when demand beats capacity.</p>
+
+        <div class="pillar-grid">
+          <div class="pillar">
+            <h4>Payments you trust</h4>
+            <p>Razorpay hosted checkout — UPI, cards, netbanking. Settlement to your bank; we never touch card data.</p>
+          </div>
+          <div class="pillar">
+            <h4>Shipping you control</h4>
+            <p>Shiprocket multi-carrier + pincode check before pay — fewer wrong-city nightmares.</p>
+          </div>
+          <div class="pillar">
+            <h4>Tested before launch</h4>
+            <p>Real Kerala pincodes, webhook drills, load suited to 15k visitors — especially peak week.</p>
+          </div>
+          <div class="pillar">
+            <h4>Daily SOP</h4>
+            <p>Admin → confirm → label → ship → customer notified. Repeatable every morning.</p>
+          </div>
+          <div class="pillar">
+            <h4>Pause orders</h4>
+            <p>One toggle when you’re at capacity — no developer on speed dial.</p>
+          </div>
+          <div class="pillar">
+            <h4>Handover</h4>
+            <p>Live training + peak-week playbook so you’re never guessing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--light" id="investment">
+      <div class="container reveal">
+        <p class="section-kicker">Investment</p>
+        <h2 class="title">What the market charges — and what you pay</h2>
+        <p class="lead">
+          Agencies bill ₹4–12L+ for comparable custom work. This is scoped to <strong>one product, one season, one outcome</strong> — priced at <strong>₹1,50,000</strong> so you reinvest the rest in cakes, ads, and packaging.
+        </p>
+
+        <div class="table-wrap">
+          <table class="data">
+            <thead>
+              <tr>
+                <th>Approach</th>
+                <th>Market rate (India)</th>
+                <th>Your fit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Top agency · full custom ecommerce</td>
+                <td class="muted">₹8,00,000 – ₹25,00,000+</td>
+                <td>Overkill & slow</td>
+              </tr>
+              <tr>
+                <td>Mid agency · storefront + admin</td>
+                <td class="muted">₹4,50,000 – ₹12,00,000</td>
+                <td>Strong but heavy retainers</td>
+              </tr>
+              <tr>
+                <td>Generic freelancer site</td>
+                <td class="muted">₹2,00,000 – ₹4,50,000</td>
+                <td>Often no real ops layer</td>
+              </tr>
+              <tr>
+                <td>Shopify + apps (2–3 years)</td>
+                <td class="muted">₹2,00,000 – ₹5,00,000+</td>
+                <td>You still rent the store</td>
+              </tr>
+              <tr class="highlight">
+                <td><strong>This build · Grand Reserve platform</strong></td>
+                <td>Comparable value <strong>₹4,00,000 – ₹6,50,000</strong></td>
+                <td>₹1,50,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pricing-grid">
+          <aside class="pricing-card">
+            <p class="label">One-time build fee</p>
+            <p class="big">₹1,50,000</p>
+            <p class="note">
+              Includes everything in scope. No hidden phases inside this number.<br /><br />
+              <strong>Not included:</strong> hosting, Razorpay %, courier per shipment, WhatsApp tools, ads — paid directly to providers.
+            </p>
+            <p class="save">
+              vs. typical <strong>₹4–6.5L</strong> market quote,<br />
+              you keep roughly <strong>₹2.5–5L+</strong> in your pocket.
+            </p>
+          </aside>
+
+          <div>
+            <h3 style="font-family:var(--font-serif); font-size:1.5rem; font-weight:400; margin-bottom:8px;">Where every rupee goes</h3>
+            <p style="font-size:0.875rem; color:var(--text-muted); margin-bottom:20px;">Professional services breakdown</p>
+            <ul class="line-items">
+              <li>
+                <span class="item-title">Discovery, positioning & zone strategy</span>
+                <span class="item-amt">₹15,000</span>
+                <span class="item-desc">Story, pincode rules, Amazon vs D2C pricing, Shopify migration plan</span>
+              </li>
+              <li>
+                <span class="item-title">UX & visual design</span>
+                <span class="item-amt">₹28,000</span>
+                <span class="item-desc">Premium storefront + admin — mobile-first Christmas funnel</span>
+              </li>
+              <li>
+                <span class="item-title">Customer website development</span>
+                <span class="item-amt">₹38,000</span>
+                <span class="item-desc">Home, PDP, festive LP, policies, corporate enquiry, SEO base</span>
+              </li>
+              <li>
+                <span class="item-title">Business admin panel</span>
+                <span class="item-amt">₹42,000</span>
+                <span class="item-desc">Orders, customers, exports, pause orders, leads, settings</span>
+              </li>
+              <li>
+                <span class="item-title">Integrations</span>
+                <span class="item-amt">₹22,000</span>
+                <span class="item-desc">Razorpay webhooks, Shiprocket workflow, transactional email</span>
+              </li>
+              <li>
+                <span class="item-title">QA, deploy, training</span>
+                <span class="item-amt">₹15,000</span>
+                <span class="item-desc">Payment & pincode tests, go-live, handover session</span>
+              </li>
+              <li>
+                <span class="item-title">Total</span>
+                <span class="item-amt">₹1,50,000</span>
+              </li>
+            </ul>
+            <p class="terms">Payment: <strong>40%</strong> on agreement · <strong>40%</strong> on staging demo · <strong>20%</strong> on go-live.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--light" id="scope">
+      <div class="container reveal">
+        <p class="section-kicker">Deliverables</p>
+        <h2 class="title">Exactly what ₹1.5 lakh delivers</h2>
+
+        <div class="check-grid">
+          <div class="check-col">
+            <h3>Public experience</h3>
+            <ul class="checks">
+              <li>Branded, fast mobile storefront</li>
+              <li>Grand Reserve story page</li>
+              <li>Christmas campaign landing</li>
+              <li>Pincode / zone check before checkout</li>
+              <li>Razorpay cart & checkout</li>
+              <li>Corporate & bulk enquiry</li>
+              <li>SEO-ready structure</li>
+            </ul>
+          </div>
+          <div class="check-col">
+            <h3>Your command centre</h3>
+            <ul class="checks">
+              <li>Secure staff login</li>
+              <li>Order dashboard & alerts</li>
+              <li>Status workflow through delivery</li>
+              <li>Customer history & CSV export</li>
+              <li>Pause new orders toggle</li>
+              <li>Corporate lead tracking</li>
+              <li>Shopify export migration support</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout-muted">
+          <strong>Additional (not in ₹1.5L):</strong> hosting (~₹500–₹2,000/mo), Razorpay fees (~2% + GST), Shiprocket per shipment, domain, WhatsApp automation (Interakt), photography, paid ads, optional monthly maintenance after handover.
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark" id="timeline">
+      <div class="container reveal">
+        <p class="section-kicker">Timeline</p>
+        <h2 class="title">Six weeks to launch-ready</h2>
+        <p class="lead">Assuming fast feedback and Razorpay / Shiprocket accounts opened in week one.</p>
+
+        <div class="steps">
+          <div class="step">
+            <p class="num">Week 1</p>
+            <h4>Kickoff</h4>
+            <p>Zones, pricing, exports, payment & courier accounts.</p>
+          </div>
+          <div class="step">
+            <p class="num">Week 2–3</p>
+            <h4>Storefront</h4>
+            <p>Design + build — the experience worth your product.</p>
+          </div>
+          <div class="step">
+            <p class="num">Week 4–5</p>
+            <h4>Admin & wiring</h4>
+            <p>Orders, webhooks, shipping — tested hard.</p>
+          </div>
+          <div class="step">
+            <p class="num">Week 6</p>
+            <h4>Go live</h4>
+            <p>Domain, training, playbook in your hands.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="finale">
+      <div class="container reveal">
+        <p class="section-kicker">The ask</p>
+        <h2 class="display">Give Grand Reserve the entrance it deserves.</h2>
+        <p class="lead">
+          You’re not buying pages. You’re buying the best online expression of a product you already proved — for a fraction of what the market normally charges.
+        </p>
+        <div class="finale-cta">
+          <span class="big-price">₹1,50,000 · one-time build</span>
+          <div class="finale-pills">
+            <span>Align & sign</span>
+            <span>Open Razorpay + Shiprocket</span>
+            <span>Build & review</span>
+            <span>Launch Christmas-ready</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Confidential · Thelliyankal Bakers · Custom platform proposal · Build fee ₹1,50,000 (INR)</p>
+    <p style="margin-top:8px;">Prepared by <!-- Your name --> · <!-- email / phone --> · September 2026</p>
   </footer>
+
+  <script>
+    (function () {
+      var els = document.querySelectorAll(".reveal");
+      if (!window.IntersectionObserver) {
+        els.forEach(function (el) { el.classList.add("is-visible"); });
+        return;
+      }
+      var io = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              e.target.classList.add("is-visible");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+      );
+      els.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
 </body>
 </html>
